@@ -1,0 +1,756 @@
+2020-04-21 12:48:56,169 p=73052 u=wuxiaobai n=ansible | PLAY [all] *****************************************************************************************
+2020-04-21 12:48:56,179 p=73052 u=wuxiaobai n=ansible | TASK [get facts] ***********************************************************************************
+2020-04-21 12:49:02,205 p=73052 u=wuxiaobai n=ansible | fatal: [192.168.0.2]: UNREACHABLE! => changed=false 
+  msg: 'Failed to connect to the host via ssh: ssh: connect to host 192.168.0.2 port 22: Network is unreachable'
+  unreachable: true
+2020-04-21 12:49:02,206 p=73052 u=wuxiaobai n=ansible | PLAY RECAP *****************************************************************************************
+2020-04-21 12:49:02,206 p=73052 u=wuxiaobai n=ansible | 192.168.0.2                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2020-04-21 12:50:46,730 p=73123 u=wuxiaobai n=ansible | PLAY [all] *********************************************************************************************************************
+2020-04-21 12:50:46,740 p=73123 u=wuxiaobai n=ansible | TASK [get facts] ***************************************************************************************************************
+2020-04-21 12:50:52,768 p=73123 u=wuxiaobai n=ansible | fatal: [192.168.0.2]: UNREACHABLE! => changed=false 
+  msg: 'Failed to connect to the host via ssh: ssh: connect to host 192.168.0.2 port 22: Network is unreachable'
+  unreachable: true
+2020-04-21 12:50:52,769 p=73123 u=wuxiaobai n=ansible | PLAY RECAP *********************************************************************************************************************
+2020-04-21 12:50:52,770 p=73123 u=wuxiaobai n=ansible | 192.168.0.2                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2020-04-21 12:52:50,172 p=73218 u=wuxiaobai |  PLAY [all] *********************************************************************************************************************
+2020-04-21 12:52:50,182 p=73218 u=wuxiaobai |  TASK [get facts] ***************************************************************************************************************
+2020-04-21 12:52:50,400 p=73218 u=wuxiaobai |  fatal: [192.168.1.135]: UNREACHABLE! => changed=false 
+  msg: |-
+    Failed to connect to the host via ssh: Warning: Permanently added '192.168.1.135' (ECDSA) to the list of known hosts.
+    wuxiaobai@192.168.1.135: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+  unreachable: true
+2020-04-21 12:52:50,402 p=73218 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy_ntp.retry
+
+2020-04-21 12:52:50,402 p=73218 u=wuxiaobai |  PLAY RECAP *********************************************************************************************************************
+2020-04-21 12:52:50,402 p=73218 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=1    failed=0   
+2020-04-21 12:55:55,642 p=73372 u=wuxiaobai |  PLAY [all] *********************************************************************************************************************
+2020-04-21 12:55:55,652 p=73372 u=wuxiaobai |  TASK [set authorized key] ******************************************************************************************************
+2020-04-21 12:55:55,753 p=73372 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => 
+  msg: to use the 'ssh' connection type with passwords, you must install the sshpass program
+2020-04-21 12:55:55,755 p=73372 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy_user.retry
+
+2020-04-21 12:55:55,755 p=73372 u=wuxiaobai |  PLAY RECAP *********************************************************************************************************************
+2020-04-21 12:55:55,755 p=73372 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=0    failed=1   
+2020-04-21 13:02:01,411 p=74195 u=wuxiaobai |  PLAY [all] *********************************************************************************************************************
+2020-04-21 13:02:01,420 p=74195 u=wuxiaobai |  TASK [get facts] ***************************************************************************************************************
+2020-04-21 13:02:01,626 p=74195 u=wuxiaobai |  fatal: [192.168.1.135]: UNREACHABLE! => changed=false 
+  msg: |-
+    Failed to connect to the host via ssh: Warning: Permanently added '192.168.1.135' (ECDSA) to the list of known hosts.
+    wuxiaobai@192.168.1.135: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+  unreachable: true
+2020-04-21 13:02:01,628 p=74195 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy_ntp.retry
+
+2020-04-21 13:02:01,628 p=74195 u=wuxiaobai |  PLAY RECAP *********************************************************************************************************************
+2020-04-21 13:02:01,628 p=74195 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=1    failed=0   
+2020-04-21 13:02:10,795 p=74206 u=wuxiaobai |  PLAY [all] *********************************************************************************************************************
+2020-04-21 13:02:10,804 p=74206 u=wuxiaobai |  TASK [get facts] ***************************************************************************************************************
+2020-04-21 13:02:13,526 p=74206 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 13:02:13,537 p=74206 u=wuxiaobai |  TASK [RedHat family Linux distribution - make sure ntp, ntpstat have been installed] *******************************************
+2020-04-21 13:03:54,252 p=74206 u=wuxiaobai |  changed: [192.168.1.135] => (item=['ntp'])
+2020-04-21 13:03:54,266 p=74206 u=wuxiaobai |  TASK [RedHat family Linux distribution - make sure ntpdate have been installed] ************************************************
+2020-04-21 13:03:55,739 p=74206 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntpdate'])
+2020-04-21 13:03:55,751 p=74206 u=wuxiaobai |  TASK [Debian family Linux distribution - make sure ntp, ntpstat have been installed] *******************************************
+2020-04-21 13:03:55,780 p=74206 u=wuxiaobai |  skipping: [192.168.1.135] => (item=[]) 
+2020-04-21 13:03:55,792 p=74206 u=wuxiaobai |  TASK [Debian family Linux distribution - make sure ntpdate have been installed] ************************************************
+2020-04-21 13:03:55,823 p=74206 u=wuxiaobai |  skipping: [192.168.1.135] => (item=[]) 
+2020-04-21 13:03:55,836 p=74206 u=wuxiaobai |  TASK [RedHat family Linux distribution - make sure ntpd service has been stopped] **********************************************
+2020-04-21 13:03:56,944 p=74206 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 13:03:56,955 p=74206 u=wuxiaobai |  TASK [Debian family Linux distribution - make sure ntp service has been stopped] ***********************************************
+2020-04-21 13:03:56,970 p=74206 u=wuxiaobai |  skipping: [192.168.1.135]
+2020-04-21 13:03:56,984 p=74206 u=wuxiaobai |  TASK [Adjust Time | start to adjust time with ntp1.aliyun.com] *****************************************************************
+2020-04-21 13:04:03,881 p=74206 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:04:03,892 p=74206 u=wuxiaobai |  TASK [RedHat family Linux distribution - make sure ntpd service has been started] **********************************************
+2020-04-21 13:04:05,045 p=74206 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:04:05,056 p=74206 u=wuxiaobai |  TASK [Debian family Linux distribution - Make sure ntp service has been started] ***********************************************
+2020-04-21 13:04:05,072 p=74206 u=wuxiaobai |  skipping: [192.168.1.135]
+2020-04-21 13:04:05,074 p=74206 u=wuxiaobai |  PLAY RECAP *********************************************************************************************************************
+2020-04-21 13:04:05,074 p=74206 u=wuxiaobai |  192.168.1.135              : ok=6    changed=3    unreachable=0    failed=0   
+2020-04-21 13:04:28,269 p=74354 u=wuxiaobai |  PLAY [all] *********************************************************************************************************************
+2020-04-21 13:04:28,286 p=74354 u=wuxiaobai |  TASK [get facts] ***************************************************************************************************************
+2020-04-21 13:04:29,972 p=74354 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 13:04:29,983 p=74354 u=wuxiaobai |  TASK [RedHat family Linux distribution - make sure ntp, ntpstat have been installed] *******************************************
+2020-04-21 13:04:31,494 p=74354 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntp'])
+2020-04-21 13:04:31,506 p=74354 u=wuxiaobai |  TASK [RedHat family Linux distribution - make sure ntpdate have been installed] ************************************************
+2020-04-21 13:04:32,910 p=74354 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntpdate'])
+2020-04-21 13:04:32,921 p=74354 u=wuxiaobai |  TASK [RedHat family Linux distribution - make sure ntpd service has been stopped] **********************************************
+2020-04-21 13:04:34,156 p=74354 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:04:34,169 p=74354 u=wuxiaobai |  TASK [Adjust Time | start to adjust time with ntp1.aliyun.com] *****************************************************************
+2020-04-21 13:04:41,152 p=74354 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:04:41,163 p=74354 u=wuxiaobai |  TASK [RedHat family Linux distribution - make sure ntpd service has been started] **********************************************
+2020-04-21 13:04:42,150 p=74354 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:04:42,152 p=74354 u=wuxiaobai |  PLAY RECAP *********************************************************************************************************************
+2020-04-21 13:04:42,152 p=74354 u=wuxiaobai |  192.168.1.135              : ok=6    changed=3    unreachable=0    failed=0   
+2020-04-21 13:06:02,833 p=74466 u=wuxiaobai |  PLAY [all] *********************************************************************************************************************
+2020-04-21 13:06:02,850 p=74466 u=wuxiaobai |  TASK [get facts] ***************************************************************************************************************
+2020-04-21 13:06:05,218 p=74466 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 13:06:05,230 p=74466 u=wuxiaobai |  TASK [Centos7 - make sure ntp, ntpstat have been installed] ********************************************************************
+2020-04-21 13:06:06,733 p=74466 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntp'])
+2020-04-21 13:06:06,745 p=74466 u=wuxiaobai |  TASK [Centos7 - make sure ntpdate have been installed] *************************************************************************
+2020-04-21 13:06:08,113 p=74466 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntpdate'])
+2020-04-21 13:06:08,125 p=74466 u=wuxiaobai |  TASK [Centos7 - make sure ntpd service has been stopped] ***********************************************************************
+2020-04-21 13:06:09,447 p=74466 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:06:09,461 p=74466 u=wuxiaobai |  TASK [Adjust Time | start to adjust time with ntp1.aliyun.com] *****************************************************************
+2020-04-21 13:06:18,374 p=74466 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:06:18,388 p=74466 u=wuxiaobai |  TASK [Centos7 - make sure ntpd service has been started] ***********************************************************************
+2020-04-21 13:06:19,365 p=74466 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:06:19,367 p=74466 u=wuxiaobai |  PLAY RECAP *********************************************************************************************************************
+2020-04-21 13:06:19,367 p=74466 u=wuxiaobai |  192.168.1.135              : ok=6    changed=3    unreachable=0    failed=0   
+2020-04-21 13:13:16,283 p=74800 u=wuxiaobai |  PLAY [all] *********************************************************************************************************************
+2020-04-21 13:13:16,302 p=74800 u=wuxiaobai |  TASK [get facts] ***************************************************************************************************************
+2020-04-21 13:13:18,765 p=74800 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 13:13:18,781 p=74800 u=wuxiaobai |  TASK [Centos7 - check ntp, ntpstat have been installed] ************************************************************************
+2020-04-21 13:13:20,359 p=74800 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntp'])
+2020-04-21 13:13:20,373 p=74800 u=wuxiaobai |  TASK [Centos7 - make sure ntpdate have been installed] *************************************************************************
+2020-04-21 13:13:21,782 p=74800 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntpdate'])
+2020-04-21 13:13:21,793 p=74800 u=wuxiaobai |  TASK [Centos7 - make sure ntpd service has been stopped] ***********************************************************************
+2020-04-21 13:13:23,081 p=74800 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:13:23,094 p=74800 u=wuxiaobai |  TASK [Set adjust time with ntp1.aliyun.com] ************************************************************************************
+2020-04-21 13:13:31,209 p=74800 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:13:31,220 p=74800 u=wuxiaobai |  TASK [Centos7 - make sure ntpd service has been started] ***********************************************************************
+2020-04-21 13:13:32,187 p=74800 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:13:32,188 p=74800 u=wuxiaobai |  PLAY RECAP *********************************************************************************************************************
+2020-04-21 13:13:32,189 p=74800 u=wuxiaobai |  192.168.1.135              : ok=6    changed=3    unreachable=0    failed=0   
+2020-04-21 13:15:57,765 p=74954 u=wuxiaobai |  PLAY [all] *********************************************************************************************************************
+2020-04-21 13:15:57,781 p=74954 u=wuxiaobai |  TASK [get facts] ***************************************************************************************************************
+2020-04-21 13:16:00,145 p=74954 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 13:16:00,156 p=74954 u=wuxiaobai |  TASK [Centos7 - 检查 ntp 是否已经安装] *************************************************************************************************
+2020-04-21 13:16:01,664 p=74954 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntp'])
+2020-04-21 13:16:01,676 p=74954 u=wuxiaobai |  TASK [Centos7 - 检查 ntpdate 是否已经安装] *********************************************************************************************
+2020-04-21 13:16:03,078 p=74954 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntpdate'])
+2020-04-21 13:16:03,090 p=74954 u=wuxiaobai |  TASK [Centos7 - 检查 ntpd 服务是否已经停止] **********************************************************************************************
+2020-04-21 13:16:04,383 p=74954 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:16:04,397 p=74954 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] **************************************************************************************************
+2020-04-21 13:16:11,314 p=74954 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:16:11,326 p=74954 u=wuxiaobai |  TASK [Centos7 - 检查 ntpd 服务是否已经运行] **********************************************************************************************
+2020-04-21 13:16:12,166 p=74954 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:16:12,168 p=74954 u=wuxiaobai |  PLAY RECAP *********************************************************************************************************************
+2020-04-21 13:16:12,168 p=74954 u=wuxiaobai |  192.168.1.135              : ok=6    changed=3    unreachable=0    failed=0   
+2020-04-21 13:20:16,156 p=75165 u=wuxiaobai |  ERROR! 'whth_items' is not a valid attribute for a Task
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy_ntp.yml': line 27, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: Centos7 - 检查 {{ item }} 是否已经停止
+      ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes.  Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+This error can be suppressed as a warning using the "invalid_task_attribute_failed" configuration
+2020-04-21 13:21:00,688 p=75200 u=wuxiaobai |  ERROR! 'whth_items' is not a valid attribute for a Task
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy_ntp.yml': line 27, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: Centos7 - 检查 ntpd 是否已经停止
+      ^ here
+
+This error can be suppressed as a warning using the "invalid_task_attribute_failed" configuration
+2020-04-21 13:22:58,067 p=75278 u=wuxiaobai |  ERROR! 'whth_items' is not a valid attribute for a Task
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy_ntp.yml': line 27, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: Centos7 - 检查 ntpd 是否已经停止
+      ^ here
+
+This error can be suppressed as a warning using the "invalid_task_attribute_failed" configuration
+2020-04-21 13:23:29,663 p=75303 u=wuxiaobai |  PLAY [all] *********************************************************************************************************************
+2020-04-21 13:23:29,679 p=75303 u=wuxiaobai |  TASK [get facts] ***************************************************************************************************************
+2020-04-21 13:23:32,071 p=75303 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 13:23:32,083 p=75303 u=wuxiaobai |  TASK [Centos7 - 检查 ntp 是否已经安装] *************************************************************************************************
+2020-04-21 13:23:33,646 p=75303 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntp'])
+2020-04-21 13:23:33,658 p=75303 u=wuxiaobai |  TASK [Centos7 - 检查 ntpdate 是否已经安装] *********************************************************************************************
+2020-04-21 13:23:35,036 p=75303 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntpdate'])
+2020-04-21 13:23:35,048 p=75303 u=wuxiaobai |  TASK [Centos7 - 检查 ntpd 是否已经停止] ************************************************************************************************
+2020-04-21 13:23:36,326 p=75303 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 13:23:36,340 p=75303 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] **************************************************************************************************
+2020-04-21 13:23:43,242 p=75303 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:23:43,253 p=75303 u=wuxiaobai |  TASK [Centos7 - 检查 ntpd 是否已经运行] ************************************************************************************************
+2020-04-21 13:23:44,227 p=75303 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 13:23:44,229 p=75303 u=wuxiaobai |  PLAY RECAP *********************************************************************************************************************
+2020-04-21 13:23:44,229 p=75303 u=wuxiaobai |  192.168.1.135              : ok=6    changed=3    unreachable=0    failed=0   
+2020-04-21 13:24:51,662 p=75409 u=wuxiaobai |  PLAY [all] *********************************************************************************************************************
+2020-04-21 13:24:51,678 p=75409 u=wuxiaobai |  TASK [get facts] ***************************************************************************************************************
+2020-04-21 13:24:54,045 p=75409 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 13:24:54,057 p=75409 u=wuxiaobai |  TASK [检查 ntp 是否已经安装] ***********************************************************************************************************
+2020-04-21 13:24:55,608 p=75409 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntp'])
+2020-04-21 13:24:55,621 p=75409 u=wuxiaobai |  TASK [检查 ntpdate 是否已经安装] *******************************************************************************************************
+2020-04-21 13:24:56,958 p=75409 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntpdate'])
+2020-04-21 13:24:56,970 p=75409 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] **********************************************************************************************************
+2020-04-21 13:24:58,295 p=75409 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 13:24:58,308 p=75409 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] **************************************************************************************************
+2020-04-21 13:25:05,210 p=75409 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:25:05,222 p=75409 u=wuxiaobai |  TASK [检查 ntpd 是否已经运行] **********************************************************************************************************
+2020-04-21 13:25:06,210 p=75409 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 13:25:06,212 p=75409 u=wuxiaobai |  PLAY RECAP *********************************************************************************************************************
+2020-04-21 13:25:06,212 p=75409 u=wuxiaobai |  192.168.1.135              : ok=6    changed=3    unreachable=0    failed=0   
+2020-04-21 13:27:39,075 p=75660 u=wuxiaobai |  PLAY [all] *********************************************************************************************************************
+2020-04-21 13:27:39,107 p=75660 u=wuxiaobai |  TASK [get facts] ***************************************************************************************************************
+2020-04-21 13:27:41,514 p=75660 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 13:27:41,526 p=75660 u=wuxiaobai |  TASK [检查 ntp 是否已经安装] ***********************************************************************************************************
+2020-04-21 13:27:43,079 p=75660 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntp'])
+2020-04-21 13:27:43,092 p=75660 u=wuxiaobai |  TASK [检查 ntpdate 是否已经安装] *******************************************************************************************************
+2020-04-21 13:27:44,507 p=75660 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntpdate'])
+2020-04-21 13:27:44,519 p=75660 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] **********************************************************************************************************
+2020-04-21 13:27:45,849 p=75660 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 13:27:45,863 p=75660 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] **************************************************************************************************
+2020-04-21 13:27:52,812 p=75660 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 13:27:52,824 p=75660 u=wuxiaobai |  TASK [检查 ntpd 是否已经运行] **********************************************************************************************************
+2020-04-21 13:27:53,823 p=75660 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 13:27:53,826 p=75660 u=wuxiaobai |  PLAY RECAP *********************************************************************************************************************
+2020-04-21 13:27:53,826 p=75660 u=wuxiaobai |  192.168.1.135              : ok=6    changed=3    unreachable=0    failed=0   
+2020-04-21 13:34:07,385 p=76006 u=wuxiaobai |  192.168.1.135 | CHANGED | rc=0 >>
+root
+
+2020-04-21 13:34:25,827 p=76032 u=wuxiaobai |  192.168.1.135 | CHANGED | rc=0 >>
+root
+
+2020-04-21 14:12:19,153 p=77553 u=wuxiaobai |  PLAY [all] ***********************************************************************
+2020-04-21 14:12:19,169 p=77553 u=wuxiaobai |  TASK [get facts] *****************************************************************
+2020-04-21 14:12:21,619 p=77553 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:12:21,632 p=77553 u=wuxiaobai |  TASK [检查 ntp 是否已经安装] *************************************************************
+2020-04-21 14:12:23,133 p=77553 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntp'])
+2020-04-21 14:12:23,147 p=77553 u=wuxiaobai |  TASK [检查 ntpdate 是否已经安装] *********************************************************
+2020-04-21 14:12:24,518 p=77553 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntpdate'])
+2020-04-21 14:12:24,535 p=77553 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] ************************************************************
+2020-04-21 14:12:25,861 p=77553 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 14:12:25,884 p=77553 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] ****************************************************
+2020-04-21 14:12:32,874 p=77553 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 14:12:32,887 p=77553 u=wuxiaobai |  TASK [检查 ntpd 是否已经运行] ************************************************************
+2020-04-21 14:12:33,863 p=77553 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 14:12:33,865 p=77553 u=wuxiaobai |  PLAY RECAP ***********************************************************************
+2020-04-21 14:12:33,865 p=77553 u=wuxiaobai |  192.168.1.135              : ok=6    changed=3    unreachable=0    failed=0   
+2020-04-21 14:13:57,919 p=77685 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-
+ansible/deploy_prepare.yml, line 3, column 3, found a duplicate dict key (tasks).
+Using last defined value only.
+
+2020-04-21 14:13:58,411 p=77685 u=wuxiaobai |  PLAY [all] ***********************************************************************
+2020-04-21 14:13:58,430 p=77685 u=wuxiaobai |  TASK [get facts] *****************************************************************
+2020-04-21 14:14:00,866 p=77685 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:14:00,879 p=77685 u=wuxiaobai |  TASK [检查 ntp 是否已经安装] *************************************************************
+2020-04-21 14:14:02,387 p=77685 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntp'])
+2020-04-21 14:14:02,400 p=77685 u=wuxiaobai |  TASK [检查 ntpdate 是否已经安装] *********************************************************
+2020-04-21 14:14:03,760 p=77685 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntpdate'])
+2020-04-21 14:14:03,773 p=77685 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] ************************************************************
+2020-04-21 14:14:05,023 p=77685 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 14:14:05,038 p=77685 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] ****************************************************
+2020-04-21 14:14:12,050 p=77685 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 14:14:12,066 p=77685 u=wuxiaobai |  TASK [检查 ntpd 是否已经运行] ************************************************************
+2020-04-21 14:14:13,101 p=77685 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 14:14:13,104 p=77685 u=wuxiaobai |  PLAY RECAP ***********************************************************************
+2020-04-21 14:14:13,104 p=77685 u=wuxiaobai |  192.168.1.135              : ok=6    changed=3    unreachable=0    failed=0   
+2020-04-21 14:15:44,027 p=77824 u=wuxiaobai |  PLAY [all] ***********************************************************************
+2020-04-21 14:15:44,045 p=77824 u=wuxiaobai |  TASK [get facts] *****************************************************************
+2020-04-21 14:15:46,496 p=77824 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:15:46,509 p=77824 u=wuxiaobai |  TASK [检查 ntp 是否已经安装] *************************************************************
+2020-04-21 14:15:48,021 p=77824 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntp'])
+2020-04-21 14:15:48,035 p=77824 u=wuxiaobai |  TASK [检查 ntpdate 是否已经安装] *********************************************************
+2020-04-21 14:15:49,377 p=77824 u=wuxiaobai |  ok: [192.168.1.135] => (item=['ntpdate'])
+2020-04-21 14:15:49,391 p=77824 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] ************************************************************
+2020-04-21 14:15:50,671 p=77824 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 14:15:50,686 p=77824 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] ****************************************************
+2020-04-21 14:15:57,617 p=77824 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 14:15:57,630 p=77824 u=wuxiaobai |  TASK [检查 ntpd 是否已经运行] ************************************************************
+2020-04-21 14:15:58,610 p=77824 u=wuxiaobai |  changed: [192.168.1.135] => (item=ntpd)
+2020-04-21 14:15:58,611 p=77824 u=wuxiaobai |  PLAY RECAP ***********************************************************************
+2020-04-21 14:15:58,612 p=77824 u=wuxiaobai |  192.168.1.135              : ok=6    changed=3    unreachable=0    failed=0   
+2020-04-21 14:21:00,602 p=78099 u=wuxiaobai |  ERROR! Syntax Error while loading YAML.
+  expected <block end>, but found '?'
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy.yml': line 6, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - name: 更新
+    shell: yum update
+    ^ here
+
+2020-04-21 14:21:21,447 p=78116 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 14:21:21,465 p=78116 u=wuxiaobai |  TASK [更新] ******************************************************************************************
+2020-04-21 14:30:50,457 p=78116 u=wuxiaobai |   [ERROR]: User interrupted execution
+
+2020-04-21 14:30:57,259 p=78582 u=wuxiaobai |  ERROR! Syntax Error while loading YAML.
+  expected alphabetic or numeric character, but found '\n'
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy.yml': line 7, column 16, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      yum:
+        name: *
+               ^ here
+
+2020-04-21 14:31:21,997 p=78601 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 14:31:22,018 p=78601 u=wuxiaobai |  TASK [upgrade all packages] ************************************************************************
+2020-04-21 14:31:35,360 p=78601 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 14:31:35,362 p=78601 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 14:31:35,362 p=78601 u=wuxiaobai |  192.168.1.135              : ok=1    changed=1    unreachable=0    failed=0   
+2020-04-21 14:36:41,841 p=78812 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 14:36:42,384 p=78812 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 14:36:42,403 p=78812 u=wuxiaobai |  TASK [install epel-release wget] *******************************************************************
+2020-04-21 14:36:45,224 p=78812 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=false 
+  msg: 'Failure talking to yum: near "epel": syntax error'
+2020-04-21 14:36:45,227 p=78812 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy.retry
+
+2020-04-21 14:36:45,227 p=78812 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 14:36:45,228 p=78812 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=0    failed=1   
+2020-04-21 14:41:52,843 p=79032 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 14:41:53,401 p=79032 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 14:41:53,420 p=79032 u=wuxiaobai |  TASK [install epel-release wget] *******************************************************************
+2020-04-21 14:41:55,673 p=79032 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:41:55,675 p=79032 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 14:41:55,675 p=79032 u=wuxiaobai |  192.168.1.135              : ok=1    changed=0    unreachable=0    failed=0   
+2020-04-21 14:46:12,668 p=79212 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 14:46:12,671 p=79212 u=wuxiaobai |  ERROR! A malformed block was encountered while loading a block
+2020-04-21 14:47:33,395 p=79267 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 14:47:33,398 p=79267 u=wuxiaobai |  ERROR! A malformed block was encountered while loading a block
+2020-04-21 14:49:08,289 p=79334 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 14:49:08,292 p=79334 u=wuxiaobai |  ERROR! A malformed block was encountered while loading a block
+2020-04-21 14:50:42,958 p=79396 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 14:50:42,977 p=79396 u=wuxiaobai |  TASK [get facts] ***********************************************************************************
+2020-04-21 14:50:45,409 p=79396 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:50:45,422 p=79396 u=wuxiaobai |  TASK [检查 ntp 是否已经安装] *******************************************************************************
+2020-04-21 14:50:46,909 p=79396 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:50:46,922 p=79396 u=wuxiaobai |  TASK [检查 ntpdate 是否已经安装] ***************************************************************************
+2020-04-21 14:50:48,278 p=79396 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:50:48,291 p=79396 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] ******************************************************************************
+2020-04-21 14:50:49,492 p=79396 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=false 
+  msg: 'Could not find the requested service [''ntpd'']: host'
+2020-04-21 14:50:49,494 p=79396 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy_prepare.retry
+
+2020-04-21 14:50:49,494 p=79396 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 14:50:49,494 p=79396 u=wuxiaobai |  192.168.1.135              : ok=3    changed=0    unreachable=0    failed=1   
+2020-04-21 14:53:27,315 p=79544 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 14:53:27,332 p=79544 u=wuxiaobai |  TASK [get facts] ***********************************************************************************
+2020-04-21 14:53:29,809 p=79544 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:53:29,823 p=79544 u=wuxiaobai |  TASK [检查 ntp 是否已经安装] *******************************************************************************
+2020-04-21 14:53:31,507 p=79544 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:53:31,520 p=79544 u=wuxiaobai |  TASK [检查 ntpdate 是否已经安装] ***************************************************************************
+2020-04-21 14:53:32,902 p=79544 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:53:32,915 p=79544 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] ******************************************************************************
+2020-04-21 14:53:34,187 p=79544 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 14:53:34,201 p=79544 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] **********************************************************************
+2020-04-21 14:53:41,112 p=79544 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 14:53:41,125 p=79544 u=wuxiaobai |  TASK [检查 ntpd 是否已经运行] ******************************************************************************
+2020-04-21 14:53:42,023 p=79544 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=false 
+  msg: 'Could not find the requested service [''ntpd'']: host'
+2020-04-21 14:53:42,025 p=79544 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy_prepare.retry
+
+2020-04-21 14:53:42,025 p=79544 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 14:53:42,025 p=79544 u=wuxiaobai |  192.168.1.135              : ok=5    changed=2    unreachable=0    failed=1   
+2020-04-21 14:53:59,072 p=79618 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 14:53:59,090 p=79618 u=wuxiaobai |  TASK [get facts] ***********************************************************************************
+2020-04-21 14:54:00,865 p=79618 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:54:00,878 p=79618 u=wuxiaobai |  TASK [检查 ntp 是否已经安装] *******************************************************************************
+2020-04-21 14:54:02,405 p=79618 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:54:02,417 p=79618 u=wuxiaobai |  TASK [检查 ntpdate 是否已经安装] ***************************************************************************
+2020-04-21 14:54:03,758 p=79618 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:54:03,770 p=79618 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] ******************************************************************************
+2020-04-21 14:54:04,899 p=79618 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:54:04,913 p=79618 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] **********************************************************************
+2020-04-21 14:54:11,830 p=79618 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 14:54:11,849 p=79618 u=wuxiaobai |  TASK [检查 ntpd 是否已经运行] ******************************************************************************
+2020-04-21 14:54:12,877 p=79618 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 14:54:12,878 p=79618 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 14:54:12,879 p=79618 u=wuxiaobai |  192.168.1.135              : ok=6    changed=2    unreachable=0    failed=0   
+2020-04-21 14:57:33,616 p=79810 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 14:57:33,635 p=79810 u=wuxiaobai |  TASK [get facts] ***********************************************************************************
+2020-04-21 14:57:36,238 p=79810 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:57:36,252 p=79810 u=wuxiaobai |  TASK [检查 ntp ntpdate 是否已经安装] ***********************************************************************
+2020-04-21 14:57:37,845 p=79810 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 14:57:37,859 p=79810 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] ******************************************************************************
+2020-04-21 14:57:39,195 p=79810 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 14:57:39,212 p=79810 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] **********************************************************************
+2020-04-21 14:57:46,143 p=79810 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 14:57:46,158 p=79810 u=wuxiaobai |  TASK [检查 ntpd 是否已经运行] ******************************************************************************
+2020-04-21 14:57:47,141 p=79810 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 14:57:47,144 p=79810 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 14:57:47,144 p=79810 u=wuxiaobai |  192.168.1.135              : ok=5    changed=3    unreachable=0    failed=0   
+2020-04-21 15:09:12,627 p=80304 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 15:09:12,649 p=80304 u=wuxiaobai |  TASK [get facts] ***********************************************************************************
+2020-04-21 15:09:14,731 p=80304 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 15:09:14,744 p=80304 u=wuxiaobai |  TASK [检查 ntp ntpdate 是否已经安装] ***********************************************************************
+2020-04-21 15:09:16,284 p=80304 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 15:09:16,297 p=80304 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] ******************************************************************************
+2020-04-21 15:09:17,580 p=80304 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 15:09:17,594 p=80304 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] **********************************************************************
+2020-04-21 15:09:24,512 p=80304 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 15:09:24,535 p=80304 u=wuxiaobai |  TASK [检查 ntpd 是否已经运行] ******************************************************************************
+2020-04-21 15:09:25,627 p=80304 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 15:09:25,629 p=80304 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 15:09:25,629 p=80304 u=wuxiaobai |  192.168.1.135              : ok=5    changed=3    unreachable=0    failed=0   
+2020-04-21 15:43:19,607 p=81765 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 15:43:19,625 p=81765 u=wuxiaobai |  TASK [get facts] ***********************************************************************************
+2020-04-21 15:43:22,141 p=81765 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 15:43:22,154 p=81765 u=wuxiaobai |  TASK [检查 ntp ntpdate 是否已经安装] ***********************************************************************
+2020-04-21 15:43:23,690 p=81765 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 15:43:23,704 p=81765 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] ******************************************************************************
+2020-04-21 15:43:25,014 p=81765 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 15:43:25,030 p=81765 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] **********************************************************************
+2020-04-21 15:43:31,973 p=81765 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 15:43:31,986 p=81765 u=wuxiaobai |  TASK [检查 ntpd 是否已经运行] ******************************************************************************
+2020-04-21 15:43:32,942 p=81765 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 15:43:32,944 p=81765 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 15:43:32,945 p=81765 u=wuxiaobai |  192.168.1.135              : ok=5    changed=3    unreachable=0    failed=0   
+2020-04-21 15:43:58,318 p=81835 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 15:43:58,319 p=81835 u=wuxiaobai |  ERROR! 'task' is not a valid attribute for a Play
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- hosts: all
+  ^ here
+
+2020-04-21 15:51:20,658 p=82112 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 15:51:20,658 p=82112 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (task). Using last defined value only.
+
+2020-04-21 15:51:20,659 p=82112 u=wuxiaobai |  ERROR! 'task' is not a valid attribute for a Play
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- hosts: all
+  ^ here
+
+2020-04-21 15:53:33,856 p=82199 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 15:53:33,856 p=82199 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (task). Using last defined value only.
+
+2020-04-21 15:53:33,858 p=82199 u=wuxiaobai |  ERROR! 'task' is not a valid attribute for a Play
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- hosts: all
+  ^ here
+
+2020-04-21 15:53:43,395 p=82208 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 15:53:43,413 p=82208 u=wuxiaobai |  TASK [get facts] ***********************************************************************************
+2020-04-21 15:53:45,872 p=82208 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 15:53:45,885 p=82208 u=wuxiaobai |  TASK [检查 ntp ntpdate 是否已经安装] ***********************************************************************
+2020-04-21 15:53:47,397 p=82208 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 15:53:47,411 p=82208 u=wuxiaobai |  TASK [检查 ntpd 是否已经停止] ******************************************************************************
+2020-04-21 15:53:48,721 p=82208 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 15:53:48,735 p=82208 u=wuxiaobai |  TASK [设置 ntp ntp1.aliyun.com] **********************************************************************
+2020-04-21 15:53:55,649 p=82208 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 15:53:55,663 p=82208 u=wuxiaobai |  TASK [检查 ntpd 是否已经运行] ******************************************************************************
+2020-04-21 15:53:56,509 p=82208 u=wuxiaobai |  changed: [192.168.1.135]
+2020-04-21 15:53:56,511 p=82208 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 15:53:56,511 p=82208 u=wuxiaobai |  192.168.1.135              : ok=5    changed=3    unreachable=0    failed=0   
+2020-04-21 15:54:00,888 p=82267 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 15:54:00,888 p=82267 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (task). Using last defined value only.
+
+2020-04-21 15:54:00,889 p=82267 u=wuxiaobai |  ERROR! 'task' is not a valid attribute for a Play
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- hosts: all
+  ^ here
+
+2020-04-21 15:57:50,649 p=82441 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 15:57:50,649 p=82441 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (task). Using last defined value only.
+
+2020-04-21 15:57:50,650 p=82441 u=wuxiaobai |  ERROR! 'task' is not a valid attribute for a Play
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- hosts: all
+  ^ here
+
+2020-04-21 15:58:40,564 p=82496 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 15:58:41,080 p=82496 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 15:58:41,098 p=82496 u=wuxiaobai |  TASK [install epel-release wget] *******************************************************************
+2020-04-21 15:58:43,336 p=82496 u=wuxiaobai |  ok: [192.168.1.135]
+2020-04-21 15:58:43,339 p=82496 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 15:58:43,339 p=82496 u=wuxiaobai |  192.168.1.135              : ok=1    changed=0    unreachable=0    failed=0   
+2020-04-21 15:59:07,894 p=82527 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 15:59:07,895 p=82527 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (task). Using last defined value only.
+
+2020-04-21 15:59:07,896 p=82527 u=wuxiaobai |  ERROR! 'task' is not a valid attribute for a Play
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- hosts: all
+  ^ here
+
+2020-04-21 16:01:46,250 p=82634 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 16:01:46,766 p=82634 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 16:01:46,785 p=82634 u=wuxiaobai |  TASK [set mirrors repo] ****************************************************************************
+2020-04-21 16:01:48,183 p=82634 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=true 
+  cmd: sh /tmp/set_mirrors.sh
+  delta: '0:00:00.016451'
+  end: '2020-04-21 16:01:48.061279'
+  msg: non-zero return code
+  rc: 127
+  start: '2020-04-21 16:01:48.044828'
+  stderr: 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stderr_lines:
+  - 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stdout: ''
+  stdout_lines: <omitted>
+2020-04-21 16:01:48,184 p=82634 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy.retry
+
+2020-04-21 16:01:48,184 p=82634 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 16:01:48,185 p=82634 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=0    failed=1   
+2020-04-21 16:02:36,088 p=82680 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 16:02:36,593 p=82680 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 16:02:36,612 p=82680 u=wuxiaobai |  TASK [set mirrors repo] ****************************************************************************
+2020-04-21 16:02:37,370 p=82680 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=true 
+  cmd: sh /tmp/set_mirrors.sh
+  delta: '0:00:00.014705'
+  end: '2020-04-21 16:02:37.241345'
+  msg: non-zero return code
+  rc: 127
+  start: '2020-04-21 16:02:37.226640'
+  stderr: 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stderr_lines:
+  - 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stdout: ''
+  stdout_lines: <omitted>
+2020-04-21 16:02:37,371 p=82680 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy.retry
+
+2020-04-21 16:02:37,372 p=82680 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 16:02:37,372 p=82680 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=0    failed=1   
+2020-04-21 16:04:26,601 p=82774 u=wuxiaobai |  ERROR! Syntax Error while loading YAML.
+  expected <block end>, but found '<scalar>'
+
+The error appears to have been in '/Users/wuxiaobai/jms-ansible/deploy.yml': line 21, column 25, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      copy:
+        src: {{ files }}/set_mirrors.sh
+                        ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes.  Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-04-21 16:04:43,633 p=82786 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 16:04:44,151 p=82786 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 16:04:44,170 p=82786 u=wuxiaobai |  TASK [set mirrors repo] ****************************************************************************
+2020-04-21 16:04:45,596 p=82786 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=true 
+  cmd: sh /tmp/set_mirrors.sh
+  delta: '0:00:00.018035'
+  end: '2020-04-21 16:04:45.457436'
+  msg: non-zero return code
+  rc: 127
+  start: '2020-04-21 16:04:45.439401'
+  stderr: 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stderr_lines:
+  - 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stdout: ''
+  stdout_lines: <omitted>
+2020-04-21 16:04:45,598 p=82786 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy.retry
+
+2020-04-21 16:04:45,598 p=82786 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 16:04:45,598 p=82786 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=0    failed=1   
+2020-04-21 16:05:23,528 p=82830 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 16:05:24,043 p=82830 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 16:05:24,062 p=82830 u=wuxiaobai |  TASK [set mirrors repo] ****************************************************************************
+2020-04-21 16:05:24,814 p=82830 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=true 
+  cmd: sh /tmp/set_mirrors.sh
+  delta: '0:00:00.015840'
+  end: '2020-04-21 16:05:24.678478'
+  msg: non-zero return code
+  rc: 127
+  start: '2020-04-21 16:05:24.662638'
+  stderr: 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stderr_lines:
+  - 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stdout: ''
+  stdout_lines: <omitted>
+2020-04-21 16:05:24,815 p=82830 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy.retry
+
+2020-04-21 16:05:24,815 p=82830 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 16:05:24,816 p=82830 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=0    failed=1   
+2020-04-21 16:11:57,099 p=83172 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 16:11:57,618 p=83172 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 16:11:57,636 p=83172 u=wuxiaobai |  TASK [set mirrors repo] ****************************************************************************
+2020-04-21 16:11:58,999 p=83172 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=true 
+  cmd: sh /tmp/set_mirrors.sh
+  delta: '0:00:00.013710'
+  end: '2020-04-21 16:11:58.853219'
+  msg: non-zero return code
+  rc: 127
+  start: '2020-04-21 16:11:58.839509'
+  stderr: 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stderr_lines:
+  - 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stdout: ''
+  stdout_lines: <omitted>
+2020-04-21 16:11:59,001 p=83172 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy.retry
+
+2020-04-21 16:11:59,001 p=83172 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 16:11:59,002 p=83172 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=0    failed=1   
+2020-04-21 16:12:46,827 p=83215 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 16:12:47,348 p=83215 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 16:12:47,367 p=83215 u=wuxiaobai |  TASK [set mirrors repo] ****************************************************************************
+2020-04-21 16:12:48,112 p=83215 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=true 
+  cmd: sh /tmp/set_mirrors.sh
+  delta: '0:00:00.017263'
+  end: '2020-04-21 16:12:47.967084'
+  msg: non-zero return code
+  rc: 127
+  start: '2020-04-21 16:12:47.949821'
+  stderr: 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stderr_lines:
+  - 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stdout: ''
+  stdout_lines: <omitted>
+2020-04-21 16:12:48,113 p=83215 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy.retry
+
+2020-04-21 16:12:48,113 p=83215 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 16:12:48,113 p=83215 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=0    failed=1   
+2020-04-21 16:21:00,081 p=83537 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 16:21:00,588 p=83537 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 16:21:00,606 p=83537 u=wuxiaobai |  TASK [set mirrors repo] ****************************************************************************
+2020-04-21 16:21:01,980 p=83537 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=true 
+  cmd: sh /tmp/set_mirrors.sh
+  delta: '0:00:00.016612'
+  end: '2020-04-21 16:21:01.883239'
+  msg: non-zero return code
+  rc: 127
+  start: '2020-04-21 16:21:01.866627'
+  stderr: 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stderr_lines:
+  - 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stdout: ''
+  stdout_lines: <omitted>
+2020-04-21 16:21:01,981 p=83537 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy.retry
+
+2020-04-21 16:21:01,982 p=83537 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 16:21:01,982 p=83537 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=0    failed=1   
+2020-04-21 16:26:54,669 p=83854 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 16:26:55,183 p=83854 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 16:26:55,201 p=83854 u=wuxiaobai |  TASK [set mirrors repo] ****************************************************************************
+2020-04-21 16:26:56,621 p=83854 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=true 
+  cmd: sh /tmp/set_mirrors.sh
+  delta: '0:00:00.014879'
+  end: '2020-04-21 16:26:56.620554'
+  msg: non-zero return code
+  rc: 127
+  start: '2020-04-21 16:26:56.605675'
+  stderr: 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stderr_lines:
+  - 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stdout: ''
+  stdout_lines: <omitted>
+2020-04-21 16:26:56,623 p=83854 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy.retry
+
+2020-04-21 16:26:56,623 p=83854 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 16:26:56,623 p=83854 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=0    failed=1   
+2020-04-21 16:29:25,850 p=83966 u=wuxiaobai |   [WARNING]: While constructing a mapping from /Users/wuxiaobai/jms-ansible/deploy.yml, line 3,
+column 3, found a duplicate dict key (tasks). Using last defined value only.
+
+2020-04-21 16:29:26,359 p=83966 u=wuxiaobai |  PLAY [all] *****************************************************************************************
+2020-04-21 16:29:26,381 p=83966 u=wuxiaobai |  TASK [set mirrors repo] ****************************************************************************
+2020-04-21 16:29:27,749 p=83966 u=wuxiaobai |  fatal: [192.168.1.135]: FAILED! => changed=true 
+  cmd: sh /tmp/set_mirrors.sh
+  delta: '0:00:00.017586'
+  end: '2020-04-21 16:29:27.780462'
+  msg: non-zero return code
+  rc: 127
+  start: '2020-04-21 16:29:27.762876'
+  stderr: 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stderr_lines:
+  - 'sh: /tmp/set_mirrors.sh: 没有那个文件或目录'
+  stdout: ''
+  stdout_lines: <omitted>
+2020-04-21 16:29:27,750 p=83966 u=wuxiaobai |  	to retry, use: --limit @/Users/wuxiaobai/jms-ansible/retry_files/deploy.retry
+
+2020-04-21 16:29:27,751 p=83966 u=wuxiaobai |  PLAY RECAP *****************************************************************************************
+2020-04-21 16:29:27,751 p=83966 u=wuxiaobai |  192.168.1.135              : ok=0    changed=0    unreachable=0    failed=1   

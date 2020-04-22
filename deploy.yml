@@ -1,0 +1,29 @@
+- name: system init
+  hosts: all
+  roles:
+    - prepare
+
+- name: prepare nfs server
+  hosts: nfs
+  roles:
+    - nfs
+
+- name: prepare mariadb server
+  hosts: mariadb
+  roles:
+    - mariadb
+
+- name: prepare redis server
+  hosts: redis
+  roles:
+    - redis
+
+- name: prepare nginx server
+  hosts: nginx
+  roles:
+    - nginx
+
+- name: prepare core server
+  hosts: core
+  roles:
+    - core

@@ -1,0 +1,40 @@
+- name: install epel wget
+  yum:
+    name:
+      - epel-release
+      - wget
+    state: present
+
+- name: copy mirrors scripts
+  copy:
+    src: scripts/set_mirrors.sh
+    dest: /tmp/set_mirrors.sh
+  notify:
+    - set mirrors
+
+- meta: flush_handlers
+
+- name: check ntp ntpdate install
+  yum:
+    name:
+      - ntp
+      - ntpdate
+    state: present
+
+- name: check ntpd stopped
+  service:
+    name: ntpd
+    state: stopped
+  when:
+    - ntp_server is defined
+
+- name: set ntp {{ ntp_server }}
+  shell: ntpdate {{ ntp_server }}
+  when: ntp_server is defined
+
+- name: check ntpd started
+  service:
+    name: ntpd
+    state: started
+  when:
+    - ntp_server is defined

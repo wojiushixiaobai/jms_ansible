@@ -1,0 +1,25 @@
+- name: install redis-server
+  yum:
+    name:
+      - redis
+    state: present
+
+- name: copy redis scripts
+  template:
+    src: set_redis.sh.j2
+    dest: /tmp/set_redis.sh
+  notify:
+    - set redis scripts
+    - restart redis
+
+- name: enable redis automatic start
+  systemd:
+    name: redis
+    state: started
+    enabled: yes
+
+- firewalld:
+    rich_rule: 'rule family=ipv4 source address="{{ jms_network }}" port protocol=tcp port=6379 accept'
+    permanent: yes
+    state: enabled
+    immediate: yes

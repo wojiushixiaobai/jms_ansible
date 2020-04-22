@@ -1,0 +1,82 @@
+- name: install git gcc
+  yum:
+    name:
+      - gcc
+      - git
+      - libselinux-python
+      - libsemanage-python
+    state: present
+
+- firewalld:
+    rich_rule: 'rule family=ipv4 source address="{{ jms_network }}" port protocol=tcp port=80 accept'
+    permanent: yes
+    state: enabled
+    immediate: yes
+
+- seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes
+
+- name: install python36
+  yum:
+    name:
+      - python36
+      - python36-devel
+    state: present
+
+- name: download core
+  get_url:
+    url: http://demo.jumpserver.org/download/luna/{{ jumpserver_version }}/luna.tar.gz
+    dest: /opt/jumpserver.tar.gz
+  notify:
+    - extract core
+
+- meta: flush_handlers
+
+- name: install nfs-utils
+  yum:
+    name:
+      - nfs-utils
+    state: present
+
+- name: mount nfs data directory
+  mount:
+    fstype: nfs
+    opts: rw
+    src: "{{ groups['nfs'][0] }}:{{ nfs_src_dir }}"
+    path: "{{ nfs_dest_dir }}"
+    state: mounted
+
+- name: install core requirement
+  yum:
+    name:
+      - krb5-devel
+      - libtiff-devel
+      - libjpeg-devel
+      - libzip-devel
+      - freetype-devel
+      - lcms2-devel
+      - libwebp-devel
+      - tcl-devel
+      - tk-devel
+      - sshpass
+      - openldap-devel
+      - mariadb-devel
+      - libffi-devel
+      - openssh-clients
+      - telnet
+      - openldap-clients
+    state: present
+
+- pip:
+    name: wheel
+    virtualenv: "{{ install_dir }}/py3"
+    virtualenv_python: python3.6
+    extra_args: -i https://mirrors.aliyun.com/pypi/simple/
+
+- pip:
+    requirement: '{{ install_dir }}/jumpserver/requirements/requirements.txt'
+    virtualenv: "{{ install_dir }}/py3"
+    virtualenv_python: python3.6
+    extra_args: -i https://mirrors.aliyun.com/pypi/simple/

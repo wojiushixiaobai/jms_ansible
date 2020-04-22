@@ -1,0 +1,10 @@
+- name: extract luna
+  unarchive:
+    src: /opt/luna.tar.gz
+    dest: /opt/jumpserver/data
+    copy: no
+
+- name: restart nginx
+  systemd:
+    name: nginx
+    state: restarted

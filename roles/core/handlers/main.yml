@@ -1,0 +1,5 @@
+- name: extract core
+  unarchive:
+    src: /opt/jumpserver.tar.gz
+    dest: /opt
+    copy: no

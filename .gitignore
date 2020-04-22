@@ -1,0 +1,5 @@
+.DS_Store
+*.pyc
+*.retry
+fact_files/
+retry_files/
