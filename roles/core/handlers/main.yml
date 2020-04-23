@@ -1,5 +1,11 @@
+---
+
 - name: extract core
   unarchive:
-    src: /opt/jumpserver.tar.gz
-    dest: /opt
+    src: "{{ install_dir }}/jumpserver.tar.gz"
+    dest: "{{ install_dir }}"
     copy: no
+
+- name: reload systemd
+  systemd:
+    daemon_reload: yes

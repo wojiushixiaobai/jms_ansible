@@ -1,8 +1,4 @@
-- name: install tengine-server
-  yum:
-    name:
-      - http://demo.jumpserver.org/download/centos/7/tengine-2.3.2-1.el7.ngx.x86_64.rpm
-    state: present
+---
 
 - firewalld:
     zone: public
@@ -49,16 +45,25 @@
   mount:
     fstype: nfs
     opts: rw
-    src: "{{ groups['nfs'][0] }}:{{ nfs_src_dir }}"
+    src: "{{ nfs_server }}:{{ nfs_src_dir }}"
     path: "{{ nfs_dest_dir }}"
     state: mounted
 
-- name: download luna
-  get_url:
-    url: http://demo.jumpserver.org/download/luna/{{ jumpserver_version }}/luna.tar.gz
-    dest: /opt/luna.tar.gz
+- name: copy file to nginx
+  copy:
+    src: "{{ item }}"
+    dest: "{{ install_dir }}/"
+  loop:
+    - "{{ downloads_dir }}/luna.tar.gz"
+    - "{{ downloads_dir }}/{{ tengine_name }}"
   notify:
     - extract luna
+
+- name: install tengine-server
+  yum:
+    name:
+      - "{{ install_dir }}/{{ tengine_name }}"
+    state: present
 
 - name: remove nginx default conf
   file:

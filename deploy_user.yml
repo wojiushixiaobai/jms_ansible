@@ -5,5 +5,5 @@
     - name: set authorized key
       authorized_key:
         user: "{{ ansible_user }}"
-        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
         state: present

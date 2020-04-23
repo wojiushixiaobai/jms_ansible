@@ -1,29 +1,38 @@
+---
+
+- name: do local preparation
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  roles:
+    - local
+
 - name: system init
   hosts: all
   roles:
     - prepare
 
-- name: prepare nfs server
+- name: preparation nfs server
   hosts: nfs
   roles:
     - nfs
 
-- name: prepare mariadb server
+- name: preparation mariadb server
   hosts: mariadb
   roles:
     - mariadb
 
-- name: prepare redis server
+- name: preparation redis server
   hosts: redis
   roles:
     - redis
 
-- name: prepare nginx server
+- name: preparation nginx server
   hosts: nginx
   roles:
     - nginx
 
-- name: prepare core server
-  hosts: core
+- name: preparation core server
+  hosts: core_master
   roles:
     - core

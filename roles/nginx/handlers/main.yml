@@ -1,7 +1,9 @@
+---
+
 - name: extract luna
   unarchive:
-    src: /opt/luna.tar.gz
-    dest: /opt/jumpserver/data
+    src: "{{ install_dir }}/luna.tar.gz"
+    dest: "{{ nfs_dest_dir }}"
     copy: no
 
 - name: restart nginx

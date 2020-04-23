@@ -1,3 +1,5 @@
+---
+
 - name: install mariadb-server
   yum:
     name:
@@ -40,5 +42,5 @@
     name: "{{ db_user }}"
     password: "{{ db_passwd }}"
     priv: "{{ db_name }}.*:ALL"
-    host: "{{ db_host }}"
+    host: "%"
     state: present

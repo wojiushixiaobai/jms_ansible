@@ -1,3 +1,5 @@
+---
+
 - name: install git gcc
   yum:
     name:
@@ -25,14 +27,26 @@
       - python36-devel
     state: present
 
-- name: download core
-  get_url:
-    url: http://demo.jumpserver.org/download/luna/{{ jumpserver_version }}/luna.tar.gz
-    dest: /opt/jumpserver.tar.gz
+- name: copy file to core
+  copy:
+    src: "{{ item }}"
+    dest: "{{ install_dir }}"
+    mode: '0755'
+  loop:
+    - "{{ downloads_dir }}/jumpserver.tar.gz"
   notify:
     - extract core
 
 - meta: flush_handlers
+
+- name: copy pypi mirrors file
+  copy:
+    src: "{{ downloads_dir }}/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: '0755'
+  loop:
+    - { src: pip.conf, dest: /root/.pip/pip.conf }
+    - { src: .pydistutils.cfg, dest: /root/.pydistutils.cfg }
 
 - name: install nfs-utils
   yum:
@@ -69,14 +83,23 @@
       - openldap-clients
     state: present
 
-- pip:
-    name: wheel
-    virtualenv: "{{ install_dir }}/py3"
-    virtualenv_python: python3.6
-    extra_args: -i https://mirrors.aliyun.com/pypi/simple/
+- shell: "/usr/bin/python3.6 -m venv {{ install_dir }}/py3"
+- shell: "{{ install_dir }}/py3/bin/pip install wheel"
+- shell: "{{ install_dir }}/py3/bin/pip install -U pip setuptools"
+- shell: "{{ install_dir }}/py3/bin/pip install -r {{ install_dir }}/jumpserver/requirements/requirements.txt"
 
-- pip:
-    requirement: '{{ install_dir }}/jumpserver/requirements/requirements.txt'
-    virtualenv: "{{ install_dir }}/py3"
-    virtualenv_python: python3.6
-    extra_args: -i https://mirrors.aliyun.com/pypi/simple/
+- name: copy core conf file
+  template:
+    src: "{{ item }}"
+    dest: "{{ install_dir }}/jumpserver/config.yml"
+  loop:
+    - config.yml.j2
+
+- name: copy service file
+  template:
+    src: "{{ item }}"
+    dest: "/lib/systemd/system/jms_core.service"
+  loop:
+    - jms_core.service.j2
+  notify:
+    - reload systemd

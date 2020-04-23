@@ -16,7 +16,6 @@ $ pip install -r requirements/requirements.txt
 $ vi inventory.ini
 $ ansible-playbook deploy_user.yml -uroot -k
 $ ansible all -m shell -a 'whoami'
-$ ansible-playbook deploy_prepare.yml
 $ ansible-playbook deploy.yml
 
 ```
