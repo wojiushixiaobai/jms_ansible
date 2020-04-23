@@ -32,7 +32,22 @@
   roles:
     - nginx
 
-- name: preparation core server
+- name: preparation core master server
   hosts: core_master
   roles:
     - core
+
+- name: preparation core slave server
+  hosts: core_slave
+  roles:
+    - core
+
+- name: preparation koko server
+  hosts: koko
+  roles:
+    - koko
+
+- name: preparation guacamole server
+  hosts: guacamole
+  roles:
+    - guacamole

@@ -39,11 +39,15 @@
 
 - meta: flush_handlers
 
+- name: create pip directories
+  file:
+    path: /root/.pip
+    state: directory
+
 - name: copy pypi mirrors file
   copy:
     src: "{{ downloads_dir }}/{{ item.src }}"
     dest: "{{ item.dest }}"
-    mode: '0755'
   loop:
     - { src: pip.conf, dest: /root/.pip/pip.conf }
     - { src: .pydistutils.cfg, dest: /root/.pydistutils.cfg }
@@ -103,3 +107,36 @@
     - jms_core.service.j2
   notify:
     - reload systemd
+
+- name: start core automatic start
+  systemd:
+    name: jms_core
+    state: started
+    enabled: yes
+
+- name: copy tengine to core
+  copy:
+    src: "{{ item }}"
+    dest: "{{ install_dir }}/"
+  loop:
+    - "{{ downloads_dir }}/{{ tengine_name }}"
+
+- name: install tengine-server
+  yum:
+    name:
+      - "{{ install_dir }}/{{ tengine_name }}"
+    state: present
+
+- name: remove nginx default conf
+  file:
+    path: /etc/nginx/conf.d/default.conf
+    state: absent
+
+- name: copy nginx conf
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+    - { src: jumpserver.conf.j2, dest: /etc/nginx/conf.d/jumpserver.conf }
+  notify:
+    - restart nginx
