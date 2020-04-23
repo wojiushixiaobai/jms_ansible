@@ -61,8 +61,6 @@
     name: jms_guacamole
     image: "jumpserver/jms_guacamole:{{ jms_version }}"
     state: started
-    restart: yes
-    recreate: yes
     ports:
       - "8081:8080"
     env:

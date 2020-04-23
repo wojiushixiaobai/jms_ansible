@@ -67,8 +67,6 @@
     name: jms_koko
     image: "jumpserver/jms_koko:{{ jms_version }}"
     state: started
-    restart: yes
-    recreate: yes
     ports:
       - "2222:2222"
       - "5000:5000"
