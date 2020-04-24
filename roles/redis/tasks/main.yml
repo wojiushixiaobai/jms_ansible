@@ -32,3 +32,5 @@
     immediate: yes
   loop:
     - 'rule family=ipv4 source address="{{ jms_network }}" port protocol=tcp port=6379 accept'
+  when:
+    - enable_firewalld|default(false)

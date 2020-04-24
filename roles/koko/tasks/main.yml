@@ -18,6 +18,8 @@
   loop:
     - 'rule family=ipv4 source address="{{ jms_network }}" port protocol=tcp port="{{ koko_ssh_port }}" accept'
     - 'rule family=ipv4 source address="{{ jms_network }}" port protocol=tcp port="{{ koko_ws_port }}" accept'
+  when:
+    - enable_firewalld|default(false)
 
 - name: add docker repository
   yum_repository:

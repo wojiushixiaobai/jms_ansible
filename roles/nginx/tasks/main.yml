@@ -9,6 +9,8 @@
   loop:
     - "{{ http_port }}/tcp"
     - "{{ ssh_port }}/tcp"
+  when:
+    - enable_firewalld|default(false)
 
 - firewalld:
     zone: public
@@ -18,8 +20,11 @@
     state: enabled
   when:
     - https_port is defined
+    - enable_firewalld|default(false)
 
 - shell: setenforce 0
+  when:
+    - enable_selinux|default(false)
 
 - name: Disable SELinux
   selinux:

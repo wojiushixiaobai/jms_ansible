@@ -17,6 +17,8 @@
     immediate: yes
   loop:
     - 'rule family=ipv4 source address="{{ jms_network }}" port protocol=tcp port=80 accept'
+  when:
+    - enable_firewalld|default(false)
 
 - seboolean:
     name: "{{ item }}"
@@ -24,6 +26,8 @@
     persistent: yes
   loop:
     - httpd_can_network_connect
+  when:
+    - enable_selinux|default(false)
 
 - name: install python36
   yum:

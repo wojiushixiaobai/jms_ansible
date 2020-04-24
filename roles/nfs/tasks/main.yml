@@ -30,6 +30,8 @@
     - nfs
     - mountd
     - rpc-bind
+  when:
+    - enable_firewalld|default(false)
 
 - name: create directory {{ nfs_src_dir }}
   file:
