@@ -13965,3 +13965,409 @@ The offending line appears to be:
 2020-04-24 11:48:08,401 p=50719 u=wuxiaobai |  TASK [koko : install docker-ce] *******************************************************
 2020-04-24 11:48:09,864 p=50719 u=wuxiaobai |  ok: [192.168.1.148] => (item=docker-ce)
 2020-04-24 11:48:09,870 p=50719 u=wuxiaobai |  TASK [koko : create docker directories] ***********************************************
+2020-04-24 11:48:10,519 p=50719 u=wuxiaobai |  ok: [192.168.1.148] => (item=/etc/docker)
+2020-04-24 11:48:10,526 p=50719 u=wuxiaobai |  TASK [koko : copy docker mirrors file] ************************************************
+2020-04-24 11:48:11,597 p=50719 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': 'daemon.json', 'dest': '/etc/docker/daemon.json'})
+2020-04-24 11:48:11,604 p=50719 u=wuxiaobai |  TASK [koko : enable docker automatic start] *******************************************
+2020-04-24 11:48:12,488 p=50719 u=wuxiaobai |  ok: [192.168.1.148] => (item=docker)
+2020-04-24 11:48:12,494 p=50719 u=wuxiaobai |  TASK [koko : pip] *********************************************************************
+2020-04-24 11:48:14,350 p=50719 u=wuxiaobai |  ok: [192.168.1.148] => (item=docker-py)
+2020-04-24 11:48:14,357 p=50719 u=wuxiaobai |  TASK [koko : create koko container] ***************************************************
+2020-04-24 12:46:50,521 p=50719 u=wuxiaobai |   [ERROR]: User interrupted execution
+
+2020-04-24 12:46:57,744 p=54923 u=wuxiaobai |  PLAY [do local preparation] ***********************************************************
+2020-04-24 12:46:57,758 p=54923 u=wuxiaobai |  TASK [local : create downloads directories] *******************************************
+2020-04-24 12:46:58,076 p=54923 u=wuxiaobai |  ok: [localhost]
+2020-04-24 12:46:58,082 p=54923 u=wuxiaobai |  TASK [local : download core luna] *****************************************************
+2020-04-24 12:46:58,934 p=54923 u=wuxiaobai |   [ERROR]: User interrupted execution
+
+2020-04-24 12:47:15,942 p=54975 u=wuxiaobai |  PLAY [do local preparation] ***********************************************************
+2020-04-24 12:47:15,953 p=54975 u=wuxiaobai |  TASK [local : create downloads directories] *******************************************
+2020-04-24 12:47:16,265 p=54975 u=wuxiaobai |  ok: [localhost]
+2020-04-24 12:47:16,270 p=54975 u=wuxiaobai |  TASK [local : download core luna] *****************************************************
+2020-04-24 12:47:39,991 p=54975 u=wuxiaobai |  ok: [localhost] => (item=jumpserver)
+2020-04-24 12:47:45,098 p=54975 u=wuxiaobai |  ok: [localhost] => (item=luna)
+2020-04-24 12:47:45,106 p=54975 u=wuxiaobai |  TASK [local : download tengine-server] ************************************************
+2020-04-24 12:47:51,402 p=54975 u=wuxiaobai |  ok: [localhost] => (item=tengine-2.3.2-1.el7.ngx.x86_64.rpm)
+2020-04-24 12:47:51,408 p=54975 u=wuxiaobai |  TASK [local : download pip mirrors] ***************************************************
+2020-04-24 12:47:51,865 p=54975 u=wuxiaobai |  ok: [localhost] => (item=pip.conf)
+2020-04-24 12:47:52,280 p=54975 u=wuxiaobai |  ok: [localhost] => (item=.pydistutils.cfg)
+2020-04-24 12:47:52,287 p=54975 u=wuxiaobai |  TASK [local : download pip mirrors] ***************************************************
+2020-04-24 12:47:52,740 p=54975 u=wuxiaobai |  ok: [localhost] => (item=daemon.json)
+2020-04-24 12:47:52,747 p=54975 u=wuxiaobai |  PLAY [system init] ********************************************************************
+2020-04-24 12:47:52,755 p=54975 u=wuxiaobai |  TASK [prepare : install epel wget] ****************************************************
+2020-04-24 12:47:54,838 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=epel-release)
+2020-04-24 12:47:54,880 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=epel-release)
+2020-04-24 12:47:54,980 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=epel-release)
+2020-04-24 12:47:55,508 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=wget)
+2020-04-24 12:47:55,899 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=wget)
+2020-04-24 12:47:56,282 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=wget)
+2020-04-24 12:47:56,289 p=54975 u=wuxiaobai |  TASK [prepare : copy mirrors scripts] *************************************************
+2020-04-24 12:47:57,611 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': 'scripts/set_mirrors.sh', 'dest': '/tmp/set_mirrors.sh'})
+2020-04-24 12:47:57,628 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item={'src': 'scripts/set_mirrors.sh', 'dest': '/tmp/set_mirrors.sh'})
+2020-04-24 12:47:57,715 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item={'src': 'scripts/set_mirrors.sh', 'dest': '/tmp/set_mirrors.sh'})
+2020-04-24 12:47:57,722 p=54975 u=wuxiaobai |  TASK [prepare : check ntp ntpdate install] ********************************************
+2020-04-24 12:47:59,056 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=ntp)
+2020-04-24 12:47:59,086 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=ntp)
+2020-04-24 12:47:59,318 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=ntp)
+2020-04-24 12:48:00,216 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=ntpdate)
+2020-04-24 12:48:00,263 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=ntpdate)
+2020-04-24 12:48:00,678 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=ntpdate)
+2020-04-24 12:48:00,686 p=54975 u=wuxiaobai |  TASK [prepare : check ntpd stopped] ***************************************************
+2020-04-24 12:48:02,582 p=54975 u=wuxiaobai |  changed: [192.168.1.147] => (item=ntpd)
+2020-04-24 12:48:02,612 p=54975 u=wuxiaobai |  changed: [192.168.1.146] => (item=ntpd)
+2020-04-24 12:48:02,614 p=54975 u=wuxiaobai |  changed: [192.168.1.148] => (item=ntpd)
+2020-04-24 12:48:02,625 p=54975 u=wuxiaobai |  TASK [prepare : set ntp ntp1.aliyun.com] **********************************************
+2020-04-24 12:48:09,512 p=54975 u=wuxiaobai |  changed: [192.168.1.147]
+2020-04-24 12:48:10,718 p=54975 u=wuxiaobai |  changed: [192.168.1.146]
+2020-04-24 12:48:10,723 p=54975 u=wuxiaobai |  changed: [192.168.1.148]
+2020-04-24 12:48:10,735 p=54975 u=wuxiaobai |  TASK [prepare : check ntpd started] ***************************************************
+2020-04-24 12:48:12,537 p=54975 u=wuxiaobai |  changed: [192.168.1.147] => (item=ntpd)
+2020-04-24 12:48:12,694 p=54975 u=wuxiaobai |  changed: [192.168.1.148] => (item=ntpd)
+2020-04-24 12:48:12,760 p=54975 u=wuxiaobai |  changed: [192.168.1.146] => (item=ntpd)
+2020-04-24 12:48:12,773 p=54975 u=wuxiaobai |  PLAY [preparation nfs server] *********************************************************
+2020-04-24 12:48:12,780 p=54975 u=wuxiaobai |  TASK [nfs : install nfs-utils rpcbind] ************************************************
+2020-04-24 12:48:14,121 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=nfs-utils)
+2020-04-24 12:48:15,313 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=rpcbind)
+2020-04-24 12:48:15,324 p=54975 u=wuxiaobai |  TASK [nfs : enable nfs-server automatic start] ****************************************
+2020-04-24 12:48:16,196 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=rpcbind)
+2020-04-24 12:48:16,935 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=nfs-server)
+2020-04-24 12:48:17,673 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=nfs-lock)
+2020-04-24 12:48:18,422 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=nfs-idmap)
+2020-04-24 12:48:18,429 p=54975 u=wuxiaobai |  TASK [nfs : enable nfs-server firewalld] **********************************************
+2020-04-24 12:48:20,077 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=nfs)
+2020-04-24 12:48:21,520 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=mountd)
+2020-04-24 12:48:22,981 p=54975 u=wuxiaobai |  ok: [192.168.1.147] => (item=rpc-bind)
+2020-04-24 12:48:22,991 p=54975 u=wuxiaobai |  TASK [nfs : create directory /data] ***************************************************
+2020-04-24 12:48:23,625 p=54975 u=wuxiaobai |  ok: [192.168.1.147]
+2020-04-24 12:48:23,633 p=54975 u=wuxiaobai |  PLAY [preparation mariadb server] *****************************************************
+2020-04-24 12:48:23,640 p=54975 u=wuxiaobai |  TASK [mariadb : install mariadb-server] ***********************************************
+2020-04-24 12:48:23,661 p=54975 u=wuxiaobai |  skipping: [192.168.1.147] => (item=mariadb) 
+2020-04-24 12:48:23,665 p=54975 u=wuxiaobai |  skipping: [192.168.1.147] => (item=mariadb-devel) 
+2020-04-24 12:48:23,669 p=54975 u=wuxiaobai |  skipping: [192.168.1.147] => (item=mariadb-server) 
+2020-04-24 12:48:23,674 p=54975 u=wuxiaobai |  skipping: [192.168.1.147] => (item=python2-PyMySQL) 
+2020-04-24 12:48:23,682 p=54975 u=wuxiaobai |  TASK [mariadb : enable mariadb automatic start] ***************************************
+2020-04-24 12:48:23,703 p=54975 u=wuxiaobai |  skipping: [192.168.1.147] => (item=mariadb) 
+2020-04-24 12:48:23,709 p=54975 u=wuxiaobai |  TASK [mariadb : firewalld] ************************************************************
+2020-04-24 12:48:23,731 p=54975 u=wuxiaobai |  skipping: [192.168.1.147] => (item=rule family=ipv4 source address="192.168.1.0/24" port protocol=tcp port=3306 accept) 
+2020-04-24 12:48:23,738 p=54975 u=wuxiaobai |  TASK [mariadb : remove anonymous user] ************************************************
+2020-04-24 12:48:23,755 p=54975 u=wuxiaobai |  skipping: [192.168.1.147]
+2020-04-24 12:48:23,761 p=54975 u=wuxiaobai |  TASK [mariadb : dalete database test] *************************************************
+2020-04-24 12:48:23,779 p=54975 u=wuxiaobai |  skipping: [192.168.1.147] => (item=test) 
+2020-04-24 12:48:23,787 p=54975 u=wuxiaobai |  TASK [mariadb : create database jumpserver] *******************************************
+2020-04-24 12:48:23,804 p=54975 u=wuxiaobai |  skipping: [192.168.1.147]
+2020-04-24 12:48:23,811 p=54975 u=wuxiaobai |  TASK [mariadb : create user jumpserver] ***********************************************
+2020-04-24 12:48:23,828 p=54975 u=wuxiaobai |  skipping: [192.168.1.147]
+2020-04-24 12:48:23,835 p=54975 u=wuxiaobai |  PLAY [preparation redis server] *******************************************************
+2020-04-24 12:48:23,841 p=54975 u=wuxiaobai |  TASK [redis : install redis-server] ***************************************************
+2020-04-24 12:48:23,859 p=54975 u=wuxiaobai |  skipping: [192.168.1.147] => (item=redis) 
+2020-04-24 12:48:23,867 p=54975 u=wuxiaobai |  TASK [redis : copy redis scripts] *****************************************************
+2020-04-24 12:48:23,886 p=54975 u=wuxiaobai |  skipping: [192.168.1.147] => (item={'src': 'set_redis.sh.j2', 'dest': '/tmp/set_redis.sh'}) 
+2020-04-24 12:48:23,893 p=54975 u=wuxiaobai |  TASK [redis : enable redis automatic start] *******************************************
+2020-04-24 12:48:23,913 p=54975 u=wuxiaobai |  skipping: [192.168.1.147] => (item=redis) 
+2020-04-24 12:48:23,920 p=54975 u=wuxiaobai |  TASK [redis : firewalld] **************************************************************
+2020-04-24 12:48:23,941 p=54975 u=wuxiaobai |  skipping: [192.168.1.147] => (item=rule family=ipv4 source address="192.168.1.0/24" port protocol=tcp port=6379 accept) 
+2020-04-24 12:48:23,949 p=54975 u=wuxiaobai |  PLAY [preparation nginx server] *******************************************************
+2020-04-24 12:48:23,957 p=54975 u=wuxiaobai |  TASK [nginx : firewalld] **************************************************************
+2020-04-24 12:48:25,579 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=80/tcp)
+2020-04-24 12:48:26,687 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=2222/tcp)
+2020-04-24 12:48:26,694 p=54975 u=wuxiaobai |  TASK [nginx : firewalld] **************************************************************
+2020-04-24 12:48:26,710 p=54975 u=wuxiaobai |  skipping: [192.168.1.146]
+2020-04-24 12:48:26,716 p=54975 u=wuxiaobai |  TASK [nginx : shell] ******************************************************************
+2020-04-24 12:48:27,293 p=54975 u=wuxiaobai |  changed: [192.168.1.146]
+2020-04-24 12:48:27,299 p=54975 u=wuxiaobai |  TASK [nginx : Disable SELinux] ********************************************************
+2020-04-24 12:48:28,366 p=54975 u=wuxiaobai |   [WARNING]: SELinux state change will take effect next reboot
+
+2020-04-24 12:48:28,366 p=54975 u=wuxiaobai |  ok: [192.168.1.146]
+2020-04-24 12:48:28,372 p=54975 u=wuxiaobai |  TASK [nginx : install nfs-utils] ******************************************************
+2020-04-24 12:48:29,635 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=nfs-utils)
+2020-04-24 12:48:29,641 p=54975 u=wuxiaobai |  TASK [nginx : create nfs data directory] **********************************************
+2020-04-24 12:48:30,283 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=/opt/jumpserver/data)
+2020-04-24 12:48:30,289 p=54975 u=wuxiaobai |  TASK [nginx : mount nfs data directory] ***********************************************
+2020-04-24 12:48:30,980 p=54975 u=wuxiaobai |  ok: [192.168.1.146]
+2020-04-24 12:48:30,986 p=54975 u=wuxiaobai |  TASK [nginx : copy file to nginx] *****************************************************
+2020-04-24 12:48:32,062 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=/Users/wuxiaobai/jms_ansible/downloads/luna.tar.gz)
+2020-04-24 12:48:32,996 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=/Users/wuxiaobai/jms_ansible/downloads/tengine-2.3.2-1.el7.ngx.x86_64.rpm)
+2020-04-24 12:48:33,009 p=54975 u=wuxiaobai |  TASK [nginx : install tengine-server] *************************************************
+2020-04-24 12:48:34,579 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=/opt/tengine-2.3.2-1.el7.ngx.x86_64.rpm)
+2020-04-24 12:48:34,588 p=54975 u=wuxiaobai |  TASK [nginx : remove nginx default conf] **********************************************
+2020-04-24 12:48:35,232 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=/etc/nginx/conf.d/default.conf)
+2020-04-24 12:48:35,239 p=54975 u=wuxiaobai |  TASK [nginx : copy nginx conf] ********************************************************
+2020-04-24 12:48:36,379 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item={'src': 'nginx.conf.j2', 'dest': '/etc/nginx/nginx.conf'})
+2020-04-24 12:48:37,425 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item={'src': 'jumpserver.conf.j2', 'dest': '/etc/nginx/conf.d/jumpserver.conf'})
+2020-04-24 12:48:37,435 p=54975 u=wuxiaobai |  TASK [nginx : enable nginx automatic start] *******************************************
+2020-04-24 12:48:38,336 p=54975 u=wuxiaobai |  ok: [192.168.1.146] => (item=nginx)
+2020-04-24 12:48:38,346 p=54975 u=wuxiaobai |  PLAY [preparation core master server] *************************************************
+2020-04-24 12:48:38,358 p=54975 u=wuxiaobai |  TASK [core : install git gcc] *********************************************************
+2020-04-24 12:48:39,860 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=gcc)
+2020-04-24 12:48:41,207 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=git)
+2020-04-24 12:48:42,575 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libselinux-python)
+2020-04-24 12:48:43,951 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libsemanage-python)
+2020-04-24 12:48:43,961 p=54975 u=wuxiaobai |  TASK [core : firewalld] ***************************************************************
+2020-04-24 12:48:45,562 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=rule family=ipv4 source address="192.168.1.0/24" port protocol=tcp port=80 accept)
+2020-04-24 12:48:45,570 p=54975 u=wuxiaobai |  TASK [core : seboolean] ***************************************************************
+2020-04-24 12:48:46,333 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=httpd_can_network_connect)
+2020-04-24 12:48:46,341 p=54975 u=wuxiaobai |  TASK [core : install python36] ********************************************************
+2020-04-24 12:48:48,198 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=python36)
+2020-04-24 12:48:50,568 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=python36-devel)
+2020-04-24 12:48:50,578 p=54975 u=wuxiaobai |  TASK [core : copy file to core] *******************************************************
+2020-04-24 12:48:52,108 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=/Users/wuxiaobai/jms_ansible/downloads/jumpserver.tar.gz)
+2020-04-24 12:48:52,119 p=54975 u=wuxiaobai |  TASK [core : create pip directories] **************************************************
+2020-04-24 12:48:52,817 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=/root/.pip)
+2020-04-24 12:48:52,823 p=54975 u=wuxiaobai |  TASK [core : copy pypi mirrors file] **************************************************
+2020-04-24 12:48:53,841 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': 'pip.conf', 'dest': '/root/.pip/pip.conf'})
+2020-04-24 12:48:54,876 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': '.pydistutils.cfg', 'dest': '/root/.pydistutils.cfg'})
+2020-04-24 12:48:54,887 p=54975 u=wuxiaobai |  TASK [core : install nfs-utils] *******************************************************
+2020-04-24 12:48:56,380 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=nfs-utils)
+2020-04-24 12:48:56,387 p=54975 u=wuxiaobai |  TASK [core : mount nfs data directory] ************************************************
+2020-04-24 12:48:56,950 p=54975 u=wuxiaobai |  ok: [192.168.1.148]
+2020-04-24 12:48:56,956 p=54975 u=wuxiaobai |  TASK [core : install core requirement] ************************************************
+2020-04-24 12:48:58,176 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=krb5-devel)
+2020-04-24 12:48:59,554 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libtiff-devel)
+2020-04-24 12:49:01,662 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libjpeg-devel)
+2020-04-24 12:49:03,045 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libzip-devel)
+2020-04-24 12:49:04,414 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=freetype-devel)
+2020-04-24 12:49:05,783 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=lcms2-devel)
+2020-04-24 12:49:07,067 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libwebp-devel)
+2020-04-24 12:49:08,428 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=tcl-devel)
+2020-04-24 12:49:09,790 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=tk-devel)
+2020-04-24 12:49:11,141 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=sshpass)
+2020-04-24 12:49:12,481 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=openldap-devel)
+2020-04-24 12:49:13,809 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=mariadb-devel)
+2020-04-24 12:49:15,209 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libffi-devel)
+2020-04-24 12:49:16,550 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=openssh-clients)
+2020-04-24 12:49:17,915 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=telnet)
+2020-04-24 12:49:19,254 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=openldap-clients)
+2020-04-24 12:49:19,262 p=54975 u=wuxiaobai |  TASK [core : shell] *******************************************************************
+2020-04-24 12:49:24,774 p=54975 u=wuxiaobai |  changed: [192.168.1.148]
+2020-04-24 12:49:24,783 p=54975 u=wuxiaobai |  TASK [core : shell] *******************************************************************
+2020-04-24 12:49:30,609 p=54975 u=wuxiaobai |  changed: [192.168.1.148]
+2020-04-24 12:49:30,619 p=54975 u=wuxiaobai |  TASK [core : shell] *******************************************************************
+2020-04-24 12:49:38,812 p=54975 u=wuxiaobai |  changed: [192.168.1.148]
+2020-04-24 12:49:38,818 p=54975 u=wuxiaobai |  TASK [core : shell] *******************************************************************
+2020-04-24 12:49:45,300 p=54975 u=wuxiaobai |  changed: [192.168.1.148]
+2020-04-24 12:49:45,307 p=54975 u=wuxiaobai |  TASK [core : copy core conf file] *****************************************************
+2020-04-24 12:49:46,365 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=config.yml.j2)
+2020-04-24 12:49:46,372 p=54975 u=wuxiaobai |  TASK [core : copy service file] *******************************************************
+2020-04-24 12:49:47,436 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=jms_core.service.j2)
+2020-04-24 12:49:47,447 p=54975 u=wuxiaobai |  TASK [core : start core automatic start] **********************************************
+2020-04-24 12:49:48,349 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=jms_core)
+2020-04-24 12:49:48,356 p=54975 u=wuxiaobai |  TASK [core : copy tengine to core] ****************************************************
+2020-04-24 12:49:49,398 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=/Users/wuxiaobai/jms_ansible/downloads/tengine-2.3.2-1.el7.ngx.x86_64.rpm)
+2020-04-24 12:49:49,405 p=54975 u=wuxiaobai |  TASK [core : install tengine-server] **************************************************
+2020-04-24 12:49:51,108 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=/opt/tengine-2.3.2-1.el7.ngx.x86_64.rpm)
+2020-04-24 12:49:51,116 p=54975 u=wuxiaobai |  TASK [core : remove nginx default conf] ***********************************************
+2020-04-24 12:49:51,725 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=/etc/nginx/conf.d/default.conf)
+2020-04-24 12:49:51,731 p=54975 u=wuxiaobai |  TASK [core : copy nginx conf] *********************************************************
+2020-04-24 12:49:52,773 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': 'jumpserver.conf.j2', 'dest': '/etc/nginx/conf.d/jumpserver.conf'})
+2020-04-24 12:49:52,780 p=54975 u=wuxiaobai |  PLAY [preparation core slave server] **************************************************
+2020-04-24 12:49:52,788 p=54975 u=wuxiaobai |  TASK [core : install git gcc] *********************************************************
+2020-04-24 12:49:54,161 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=gcc)
+2020-04-24 12:49:55,504 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=git)
+2020-04-24 12:49:56,570 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libselinux-python)
+2020-04-24 12:49:57,758 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libsemanage-python)
+2020-04-24 12:49:57,770 p=54975 u=wuxiaobai |  TASK [core : firewalld] ***************************************************************
+2020-04-24 12:49:59,378 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=rule family=ipv4 source address="192.168.1.0/24" port protocol=tcp port=80 accept)
+2020-04-24 12:49:59,384 p=54975 u=wuxiaobai |  TASK [core : seboolean] ***************************************************************
+2020-04-24 12:50:00,017 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=httpd_can_network_connect)
+2020-04-24 12:50:00,025 p=54975 u=wuxiaobai |  TASK [core : install python36] ********************************************************
+2020-04-24 12:50:02,048 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=python36)
+2020-04-24 12:50:04,421 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=python36-devel)
+2020-04-24 12:50:04,431 p=54975 u=wuxiaobai |  TASK [core : copy file to core] *******************************************************
+2020-04-24 12:50:05,963 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=/Users/wuxiaobai/jms_ansible/downloads/jumpserver.tar.gz)
+2020-04-24 12:50:05,970 p=54975 u=wuxiaobai |  TASK [core : create pip directories] **************************************************
+2020-04-24 12:50:06,629 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=/root/.pip)
+2020-04-24 12:50:06,637 p=54975 u=wuxiaobai |  TASK [core : copy pypi mirrors file] **************************************************
+2020-04-24 12:50:07,690 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': 'pip.conf', 'dest': '/root/.pip/pip.conf'})
+2020-04-24 12:50:08,648 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': '.pydistutils.cfg', 'dest': '/root/.pydistutils.cfg'})
+2020-04-24 12:50:08,655 p=54975 u=wuxiaobai |  TASK [core : install nfs-utils] *******************************************************
+2020-04-24 12:50:10,119 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=nfs-utils)
+2020-04-24 12:50:10,125 p=54975 u=wuxiaobai |  TASK [core : mount nfs data directory] ************************************************
+2020-04-24 12:50:10,727 p=54975 u=wuxiaobai |  ok: [192.168.1.148]
+2020-04-24 12:50:10,733 p=54975 u=wuxiaobai |  TASK [core : install core requirement] ************************************************
+2020-04-24 12:50:12,178 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=krb5-devel)
+2020-04-24 12:50:13,504 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libtiff-devel)
+2020-04-24 12:50:15,489 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libjpeg-devel)
+2020-04-24 12:50:16,546 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libzip-devel)
+2020-04-24 12:50:17,760 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=freetype-devel)
+2020-04-24 12:50:19,111 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=lcms2-devel)
+2020-04-24 12:50:20,483 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libwebp-devel)
+2020-04-24 12:50:21,824 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=tcl-devel)
+2020-04-24 12:50:23,137 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=tk-devel)
+2020-04-24 12:50:24,497 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=sshpass)
+2020-04-24 12:50:26,073 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=openldap-devel)
+2020-04-24 12:50:27,437 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=mariadb-devel)
+2020-04-24 12:50:28,530 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=libffi-devel)
+2020-04-24 12:50:29,851 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=openssh-clients)
+2020-04-24 12:50:31,197 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=telnet)
+2020-04-24 12:50:32,541 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=openldap-clients)
+2020-04-24 12:50:32,550 p=54975 u=wuxiaobai |  TASK [core : shell] *******************************************************************
+2020-04-24 12:50:38,105 p=54975 u=wuxiaobai |  changed: [192.168.1.148]
+2020-04-24 12:50:38,111 p=54975 u=wuxiaobai |  TASK [core : shell] *******************************************************************
+2020-04-24 12:50:43,910 p=54975 u=wuxiaobai |  changed: [192.168.1.148]
+2020-04-24 12:50:43,917 p=54975 u=wuxiaobai |  TASK [core : shell] *******************************************************************
+2020-04-24 12:50:53,230 p=54975 u=wuxiaobai |  changed: [192.168.1.148]
+2020-04-24 12:50:53,236 p=54975 u=wuxiaobai |  TASK [core : shell] *******************************************************************
+2020-04-24 12:50:59,924 p=54975 u=wuxiaobai |  changed: [192.168.1.148]
+2020-04-24 12:50:59,930 p=54975 u=wuxiaobai |  TASK [core : copy core conf file] *****************************************************
+2020-04-24 12:51:01,066 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=config.yml.j2)
+2020-04-24 12:51:01,073 p=54975 u=wuxiaobai |  TASK [core : copy service file] *******************************************************
+2020-04-24 12:51:02,134 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=jms_core.service.j2)
+2020-04-24 12:51:02,140 p=54975 u=wuxiaobai |  TASK [core : start core automatic start] **********************************************
+2020-04-24 12:51:02,973 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=jms_core)
+2020-04-24 12:51:02,979 p=54975 u=wuxiaobai |  TASK [core : copy tengine to core] ****************************************************
+2020-04-24 12:51:04,073 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=/Users/wuxiaobai/jms_ansible/downloads/tengine-2.3.2-1.el7.ngx.x86_64.rpm)
+2020-04-24 12:51:04,082 p=54975 u=wuxiaobai |  TASK [core : install tengine-server] **************************************************
+2020-04-24 12:51:05,573 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=/opt/tengine-2.3.2-1.el7.ngx.x86_64.rpm)
+2020-04-24 12:51:05,582 p=54975 u=wuxiaobai |  TASK [core : remove nginx default conf] ***********************************************
+2020-04-24 12:51:06,166 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=/etc/nginx/conf.d/default.conf)
+2020-04-24 12:51:06,175 p=54975 u=wuxiaobai |  TASK [core : copy nginx conf] *********************************************************
+2020-04-24 12:51:07,226 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': 'jumpserver.conf.j2', 'dest': '/etc/nginx/conf.d/jumpserver.conf'})
+2020-04-24 12:51:07,234 p=54975 u=wuxiaobai |  PLAY [preparation koko server] ********************************************************
+2020-04-24 12:51:07,241 p=54975 u=wuxiaobai |  TASK [koko : install docker prepare] **************************************************
+2020-04-24 12:51:08,724 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=yum-utils)
+2020-04-24 12:51:10,080 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=device-mapper-persistent-data)
+2020-04-24 12:51:11,654 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=lvm2)
+2020-04-24 12:51:12,905 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=python2-pip)
+2020-04-24 12:51:12,913 p=54975 u=wuxiaobai |  TASK [koko : firewalld] ***************************************************************
+2020-04-24 12:51:14,511 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=rule family=ipv4 source address="192.168.1.0/24" port protocol=tcp port="2222" accept)
+2020-04-24 12:51:15,993 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=rule family=ipv4 source address="192.168.1.0/24" port protocol=tcp port="5000" accept)
+2020-04-24 12:51:16,004 p=54975 u=wuxiaobai |  TASK [koko : add docker repository] ***************************************************
+2020-04-24 12:51:16,775 p=54975 u=wuxiaobai |  ok: [192.168.1.148]
+2020-04-24 12:51:16,782 p=54975 u=wuxiaobai |  TASK [koko : install docker-ce] *******************************************************
+2020-04-24 12:51:18,225 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=docker-ce)
+2020-04-24 12:51:18,233 p=54975 u=wuxiaobai |  TASK [koko : create docker directories] ***********************************************
+2020-04-24 12:51:18,905 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=/etc/docker)
+2020-04-24 12:51:18,912 p=54975 u=wuxiaobai |  TASK [koko : copy docker mirrors file] ************************************************
+2020-04-24 12:51:19,975 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': 'daemon.json', 'dest': '/etc/docker/daemon.json'})
+2020-04-24 12:51:19,983 p=54975 u=wuxiaobai |  TASK [koko : enable docker automatic start] *******************************************
+2020-04-24 12:51:20,896 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=docker)
+2020-04-24 12:51:20,905 p=54975 u=wuxiaobai |  TASK [koko : pip] *********************************************************************
+2020-04-24 12:51:22,713 p=54975 u=wuxiaobai |  ok: [192.168.1.148] => (item=docker-py)
+2020-04-24 12:51:22,720 p=54975 u=wuxiaobai |  TASK [koko : create koko container] ***************************************************
+2020-04-24 12:54:14,802 p=54975 u=wuxiaobai |   [ERROR]: User interrupted execution
+
+2020-04-24 12:54:17,378 p=56602 u=wuxiaobai |  PLAY [do local preparation] ***********************************************************
+2020-04-24 12:54:17,390 p=56602 u=wuxiaobai |  TASK [local : create downloads directories] *******************************************
+2020-04-24 12:54:17,699 p=56602 u=wuxiaobai |  ok: [localhost]
+2020-04-24 12:54:17,705 p=56602 u=wuxiaobai |  TASK [local : download core luna] *****************************************************
+2020-04-24 12:54:41,228 p=56602 u=wuxiaobai |  ok: [localhost] => (item=jumpserver)
+2020-04-24 12:54:44,203 p=56602 u=wuxiaobai |  ok: [localhost] => (item=luna)
+2020-04-24 12:54:44,210 p=56602 u=wuxiaobai |  TASK [local : download tengine-server] ************************************************
+2020-04-24 12:54:49,752 p=56602 u=wuxiaobai |  ok: [localhost] => (item=tengine-2.3.2-1.el7.ngx.x86_64.rpm)
+2020-04-24 12:54:49,758 p=56602 u=wuxiaobai |  TASK [local : download pip mirrors] ***************************************************
+2020-04-24 12:54:50,213 p=56602 u=wuxiaobai |  ok: [localhost] => (item=pip.conf)
+2020-04-24 12:54:50,630 p=56602 u=wuxiaobai |  ok: [localhost] => (item=.pydistutils.cfg)
+2020-04-24 12:54:50,638 p=56602 u=wuxiaobai |  TASK [local : download pip mirrors] ***************************************************
+2020-04-24 12:54:51,090 p=56602 u=wuxiaobai |  ok: [localhost] => (item=daemon.json)
+2020-04-24 12:54:51,098 p=56602 u=wuxiaobai |  PLAY [system init] ********************************************************************
+2020-04-24 12:54:51,108 p=56602 u=wuxiaobai |  TASK [prepare : install epel wget] ****************************************************
+2020-04-24 12:54:52,799 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=epel-release)
+2020-04-24 12:54:53,041 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=epel-release)
+2020-04-24 12:54:53,060 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=epel-release)
+2020-04-24 12:54:54,173 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=wget)
+2020-04-24 12:54:54,188 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=wget)
+2020-04-24 12:54:54,261 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=wget)
+2020-04-24 12:54:54,270 p=56602 u=wuxiaobai |  TASK [prepare : copy mirrors scripts] *************************************************
+2020-04-24 12:54:55,488 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item={'src': 'scripts/set_mirrors.sh', 'dest': '/tmp/set_mirrors.sh'})
+2020-04-24 12:54:55,518 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': 'scripts/set_mirrors.sh', 'dest': '/tmp/set_mirrors.sh'})
+2020-04-24 12:54:55,537 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item={'src': 'scripts/set_mirrors.sh', 'dest': '/tmp/set_mirrors.sh'})
+2020-04-24 12:54:55,545 p=56602 u=wuxiaobai |  TASK [prepare : check ntp ntpdate install] ********************************************
+2020-04-24 12:54:56,880 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=ntp)
+2020-04-24 12:54:56,950 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=ntp)
+2020-04-24 12:54:57,132 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=ntp)
+2020-04-24 12:54:58,064 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=ntpdate)
+2020-04-24 12:54:58,147 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=ntpdate)
+2020-04-24 12:54:58,539 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=ntpdate)
+2020-04-24 12:54:58,547 p=56602 u=wuxiaobai |  TASK [prepare : check ntpd stopped] ***************************************************
+2020-04-24 12:55:00,681 p=56602 u=wuxiaobai |  changed: [192.168.1.148] => (item=ntpd)
+2020-04-24 12:55:00,684 p=56602 u=wuxiaobai |  changed: [192.168.1.146] => (item=ntpd)
+2020-04-24 12:55:00,687 p=56602 u=wuxiaobai |  changed: [192.168.1.147] => (item=ntpd)
+2020-04-24 12:55:00,697 p=56602 u=wuxiaobai |  TASK [prepare : set ntp ntp1.aliyun.com] **********************************************
+2020-04-24 12:55:07,614 p=56602 u=wuxiaobai |  changed: [192.168.1.147]
+2020-04-24 12:55:07,615 p=56602 u=wuxiaobai |  changed: [192.168.1.148]
+2020-04-24 12:55:07,624 p=56602 u=wuxiaobai |  changed: [192.168.1.146]
+2020-04-24 12:55:07,632 p=56602 u=wuxiaobai |  TASK [prepare : check ntpd started] ***************************************************
+2020-04-24 12:55:09,287 p=56602 u=wuxiaobai |  changed: [192.168.1.147] => (item=ntpd)
+2020-04-24 12:55:09,310 p=56602 u=wuxiaobai |  changed: [192.168.1.148] => (item=ntpd)
+2020-04-24 12:55:09,365 p=56602 u=wuxiaobai |  changed: [192.168.1.146] => (item=ntpd)
+2020-04-24 12:55:09,375 p=56602 u=wuxiaobai |  PLAY [preparation nfs server] *********************************************************
+2020-04-24 12:55:09,381 p=56602 u=wuxiaobai |  TASK [nfs : install nfs-utils rpcbind] ************************************************
+2020-04-24 12:55:10,603 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=nfs-utils)
+2020-04-24 12:55:11,737 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=rpcbind)
+2020-04-24 12:55:11,744 p=56602 u=wuxiaobai |  TASK [nfs : enable nfs-server automatic start] ****************************************
+2020-04-24 12:55:12,596 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=rpcbind)
+2020-04-24 12:55:13,349 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=nfs-server)
+2020-04-24 12:55:14,062 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=nfs-lock)
+2020-04-24 12:55:14,797 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=nfs-idmap)
+2020-04-24 12:55:14,804 p=56602 u=wuxiaobai |  TASK [nfs : enable nfs-server firewalld] **********************************************
+2020-04-24 12:55:16,413 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=nfs)
+2020-04-24 12:55:17,861 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=mountd)
+2020-04-24 12:55:19,301 p=56602 u=wuxiaobai |  ok: [192.168.1.147] => (item=rpc-bind)
+2020-04-24 12:55:19,310 p=56602 u=wuxiaobai |  TASK [nfs : create directory /data] ***************************************************
+2020-04-24 12:55:20,133 p=56602 u=wuxiaobai |  ok: [192.168.1.147]
+2020-04-24 12:55:20,138 p=56602 u=wuxiaobai |  PLAY [preparation mariadb server] *****************************************************
+2020-04-24 12:55:20,139 p=56602 u=wuxiaobai |  skipping: no hosts matched
+2020-04-24 12:55:20,142 p=56602 u=wuxiaobai |  PLAY [preparation redis server] *******************************************************
+2020-04-24 12:55:20,142 p=56602 u=wuxiaobai |  skipping: no hosts matched
+2020-04-24 12:55:20,146 p=56602 u=wuxiaobai |  PLAY [preparation nginx server] *******************************************************
+2020-04-24 12:55:20,153 p=56602 u=wuxiaobai |  TASK [nginx : firewalld] **************************************************************
+2020-04-24 12:55:21,755 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=80/tcp)
+2020-04-24 12:55:23,229 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=2222/tcp)
+2020-04-24 12:55:23,236 p=56602 u=wuxiaobai |  TASK [nginx : firewalld] **************************************************************
+2020-04-24 12:55:23,251 p=56602 u=wuxiaobai |  skipping: [192.168.1.146]
+2020-04-24 12:55:23,257 p=56602 u=wuxiaobai |  TASK [nginx : shell] ******************************************************************
+2020-04-24 12:55:23,880 p=56602 u=wuxiaobai |  changed: [192.168.1.146]
+2020-04-24 12:55:23,886 p=56602 u=wuxiaobai |  TASK [nginx : Disable SELinux] ********************************************************
+2020-04-24 12:55:24,911 p=56602 u=wuxiaobai |   [WARNING]: SELinux state change will take effect next reboot
+
+2020-04-24 12:55:24,911 p=56602 u=wuxiaobai |  ok: [192.168.1.146]
+2020-04-24 12:55:24,916 p=56602 u=wuxiaobai |  TASK [nginx : install nfs-utils] ******************************************************
+2020-04-24 12:55:26,219 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=nfs-utils)
+2020-04-24 12:55:26,225 p=56602 u=wuxiaobai |  TASK [nginx : create nfs data directory] **********************************************
+2020-04-24 12:55:26,880 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=/opt/jumpserver/data)
+2020-04-24 12:55:26,886 p=56602 u=wuxiaobai |  TASK [nginx : mount nfs data directory] ***********************************************
+2020-04-24 12:55:27,599 p=56602 u=wuxiaobai |  ok: [192.168.1.146]
+2020-04-24 12:55:27,605 p=56602 u=wuxiaobai |  TASK [nginx : copy file to nginx] *****************************************************
+2020-04-24 12:55:28,650 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=/Users/wuxiaobai/jms_ansible/downloads/luna.tar.gz)
+2020-04-24 12:55:29,550 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=/Users/wuxiaobai/jms_ansible/downloads/tengine-2.3.2-1.el7.ngx.x86_64.rpm)
+2020-04-24 12:55:29,557 p=56602 u=wuxiaobai |  TASK [nginx : install tengine-server] *************************************************
+2020-04-24 12:55:30,990 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=/opt/tengine-2.3.2-1.el7.ngx.x86_64.rpm)
+2020-04-24 12:55:30,996 p=56602 u=wuxiaobai |  TASK [nginx : remove nginx default conf] **********************************************
+2020-04-24 12:55:31,635 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=/etc/nginx/conf.d/default.conf)
+2020-04-24 12:55:31,641 p=56602 u=wuxiaobai |  TASK [nginx : copy nginx conf] ********************************************************
+2020-04-24 12:55:32,721 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item={'src': 'nginx.conf.j2', 'dest': '/etc/nginx/nginx.conf'})
+2020-04-24 12:55:33,709 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item={'src': 'jumpserver.conf.j2', 'dest': '/etc/nginx/conf.d/jumpserver.conf'})
+2020-04-24 12:55:33,717 p=56602 u=wuxiaobai |  TASK [nginx : enable nginx automatic start] *******************************************
+2020-04-24 12:55:34,192 p=56602 u=wuxiaobai |  ok: [192.168.1.146] => (item=nginx)
+2020-04-24 12:55:34,199 p=56602 u=wuxiaobai |  PLAY [preparation core master server] *************************************************
+2020-04-24 12:55:34,207 p=56602 u=wuxiaobai |  TASK [core : install git gcc] *********************************************************
+2020-04-24 12:55:34,944 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=gcc)
+2020-04-24 12:55:36,280 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=git)
+2020-04-24 12:55:37,648 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=libselinux-python)
+2020-04-24 12:55:39,019 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=libsemanage-python)
+2020-04-24 12:55:39,027 p=56602 u=wuxiaobai |  TASK [core : firewalld] ***************************************************************
+2020-04-24 12:55:40,461 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=rule family=ipv4 source address="192.168.1.0/24" port protocol=tcp port=80 accept)
+2020-04-24 12:55:40,470 p=56602 u=wuxiaobai |  TASK [core : seboolean] ***************************************************************
+2020-04-24 12:55:40,993 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=httpd_can_network_connect)
+2020-04-24 12:55:41,000 p=56602 u=wuxiaobai |  TASK [core : install python36] ********************************************************
+2020-04-24 12:55:43,010 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=python36)
+2020-04-24 12:55:44,670 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=python36-devel)
+2020-04-24 12:55:44,678 p=56602 u=wuxiaobai |  TASK [core : copy file to core] *******************************************************
+2020-04-24 12:55:46,401 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=/Users/wuxiaobai/jms_ansible/downloads/jumpserver.tar.gz)
+2020-04-24 12:55:46,413 p=56602 u=wuxiaobai |  TASK [core : create pip directories] **************************************************
+2020-04-24 12:55:47,070 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=/root/.pip)
+2020-04-24 12:55:47,079 p=56602 u=wuxiaobai |  TASK [core : copy pypi mirrors file] **************************************************
+2020-04-24 12:55:48,202 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': 'pip.conf', 'dest': '/root/.pip/pip.conf'})
+2020-04-24 12:55:49,189 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item={'src': '.pydistutils.cfg', 'dest': '/root/.pydistutils.cfg'})
+2020-04-24 12:55:49,199 p=56602 u=wuxiaobai |  TASK [core : install nfs-utils] *******************************************************
+2020-04-24 12:55:50,740 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=nfs-utils)
+2020-04-24 12:55:50,748 p=56602 u=wuxiaobai |  TASK [core : mount nfs data directory] ************************************************
+2020-04-24 12:55:51,372 p=56602 u=wuxiaobai |  ok: [192.168.1.148]
+2020-04-24 12:55:51,379 p=56602 u=wuxiaobai |  TASK [core : install core requirement] ************************************************
+2020-04-24 12:55:52,814 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=krb5-devel)
+2020-04-24 12:55:54,144 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=libtiff-devel)
+2020-04-24 12:55:56,395 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=libjpeg-devel)
+2020-04-24 12:55:57,029 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=libzip-devel)
+2020-04-24 12:55:58,309 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=freetype-devel)
+2020-04-24 12:55:59,686 p=56602 u=wuxiaobai |  ok: [192.168.1.148] => (item=lcms2-devel)

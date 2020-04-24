@@ -58,9 +58,11 @@ $ vi inventory.ini
 
 [mariadb]
 192.168.1.147  # 用作部署 mysql 服务器的 ip, 目前只能指定一台资产
+# 如果你已经有部署好的 mysql server, 可以不设置
 
 [redis]
 192.168.1.147  # 用作部署 redis 服务器的 ip, 目前只能指定一台资产
+# 如果你已经有部署好的 redis server, 可以不设置
 
 [core_master]  # 用作部署 core 主服务器的 ip, 指定一台资产即可
 192.168.1.148
@@ -95,8 +97,9 @@ core_slave
 [db_info:vars]
 db_name = jumpserver      # 为 jumpserver 创建的数据库名称
 db_user = jumpserver      # 为 jumpserver 创建的连接用户
-db_host = 192.168.1.147   # 请改成成你的 mysql 数据库 ip
+db_host = 192.168.1.147   # 请改成你的 mysql 数据库 ip
 db_passwd = weakPassword  # 请更改此密码为更安全的密码
+# 如果你已经有部署好的 mysql server, 在这里指定
 
 [redis_info:children]
 redis
@@ -107,6 +110,7 @@ koko
 [redis_info:vars]
 redis_host = 192.168.1.147   # redis 服务器的 ip
 redis_passwd = weakPassword  # redis 服务器的密码
+# 如果你已经有部署好的 redis server, 在这里指定
 
 [nfs_info:children]
 nginx
@@ -150,6 +154,8 @@ nfs_src_dir = /data                  # nfs 服务端挂载位置, 建议默认
 nfs_dest_dir = /opt/jumpserver/data  # nfs 客户端挂载的位置, 必须指向 jumpserver 安装目录的 data 文件夹
 jms_network = 192.168.1.0/24         # 设置防火墙需要, 授权整个网段, 请修改成你部署 jumpserver 的资产网段
 
+enable_mysql = True                  # 如果你已经有部署好的 mysql server, 请修改此项为 False, 并在上面指定即可
+enable_redis = True                  # 如果你已经有部署好的 redis server, 请修改此项为 False, 并在上面指定即可
 enable_selinux = True                # 如果你的资产关闭了 selinux , 请修改此项为 False
 enable_firewalld = True              # 如果你的资产关闭了 firewalld , 请修改此项为 False
 ```
