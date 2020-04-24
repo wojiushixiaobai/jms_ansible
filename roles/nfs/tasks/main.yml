@@ -2,55 +2,34 @@
 
 - name: install nfs-utils rpcbind
   yum:
-    name:
-      - nfs-utils
-      - rpcbind
+    name: "{{ item }}"
     state: present
-
-- name: enable rpcbind automatic start
-  systemd:
-    name: rpcbind
-    state: started
-    enabled: yes
+  loop:
+    - nfs-utils
+    - rpcbind
 
 - name: enable nfs-server automatic start
   systemd:
-    name: nfs-server
+    name: "{{ item }}"
     state: started
     enabled: yes
+  loop:
+    - rpcbind
+    - nfs-server
+    - nfs-lock
+    - nfs-idmap
 
-- name: enable nfs-lock automatic start
-  systemd:
-    name: nfs-lock
-    state: started
-    enabled: yes
-
-- name: enable nfs-idmap automatic start
-  systemd:
-    name: nfs-idmap
-    state: started
-    enabled: yes
-
-- firewalld:
+- name: enable nfs-server firewalld
+  firewalld:
     zone: public
-    service: nfs
+    service: "{{ item }}"
     permanent: yes
     state: enabled
     immediate: yes
-
-- firewalld:
-    zone: public
-    service: mountd
-    permanent: yes
-    state: enabled
-    immediate: yes
-
-- firewalld:
-    zone: public
-    service: rpc-bind
-    permanent: yes
-    state: enabled
-    immediate: yes
+  loop:
+    - nfs
+    - mountd
+    - rpc-bind
 
 - name: create directory {{ nfs_src_dir }}
   file:

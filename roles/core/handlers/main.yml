@@ -12,5 +12,7 @@
 
 - name: restart nginx
   systemd:
-    name: nginx
+    name: "{{ item }}"
     state: restarted
+  loop:
+    - nginx

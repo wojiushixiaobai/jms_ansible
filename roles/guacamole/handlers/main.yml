@@ -5,5 +5,7 @@
 
 - name: restart docker
   systemd:
-    name: docker
+    name: "{{ item }}"
     state: restarted
+  loop:
+    - docker

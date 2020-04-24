@@ -7,14 +7,14 @@ upstream jumpserver {
 
 upstream koko {
 {% for item in groups['koko'] %}
-    server {{ item }}:5000;
+    server {{ item }}:{{ koko_ws_port }};
 {% endfor %}
     session_sticky;
 }
 
 upstream guacamole {
 {% for item in groups['guacamole'] %}
-    server {{ item }}:8081;
+    server {{ item }}:{{ guacamole_http_port }};
 {% endfor %}
     session_sticky;
 }
@@ -41,7 +41,7 @@ server {
     # ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     # ssl_prefer_server_ciphers on;
 
-    client_max_body_size 100m;  # 录像上传大小限制
+    client_max_body_size 1024m;  # 录像上传大小限制
 
     location /luna/ {
         try_files $uri / /index.html;

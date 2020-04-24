@@ -5,5 +5,7 @@
 
 - name: restart redis
   systemd:
-    name: redis
+    name: "{{ item }}"
     state: restarted
+  loop:
+    - redis

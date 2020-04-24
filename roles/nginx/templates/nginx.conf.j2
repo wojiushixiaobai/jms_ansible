@@ -19,7 +19,7 @@ stream {
 
     upstream kokossh {
 {% for item in groups['koko'] %}
-        server {{ item }}:2222;
+        server {{ item }}:{{ koko_ssh_port }};
 {% endfor %}
         least_conn;
     }

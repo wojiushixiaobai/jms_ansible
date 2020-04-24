@@ -2,24 +2,22 @@
 
 - name: install docker prepare
   yum:
-    name:
-      - yum-utils
-      - device-mapper-persistent-data
-      - lvm2
-      - python2-pip
+    name: "{{ item }}"
     state: present
+  loop:
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
+    - python2-pip
 
 - firewalld:
-    rich_rule: 'rule family=ipv4 source address="{{ jms_network }}" port protocol=tcp port=2222 accept'
+    rich_rule: "{{ item }}"
     permanent: yes
     state: enabled
     immediate: yes
-
-- firewalld:
-    rich_rule: 'rule family=ipv4 source address="{{ jms_network }}" port protocol=tcp port=5000 accept'
-    permanent: yes
-    state: enabled
-    immediate: yes
+  loop:
+    - 'rule family=ipv4 source address="{{ jms_network }}" port protocol=tcp port="{{ koko_ssh_port }}" accept'
+    - 'rule family=ipv4 source address="{{ jms_network }}" port protocol=tcp port="{{ koko_ws_port }}" accept'
 
 - name: add docker repository
   yum_repository:
@@ -32,14 +30,17 @@
 
 - name: install docker-ce
   yum:
-    name:
-      - docker-ce
+    name: "{{ item }}"
     state: present
+  loop:
+    - docker-ce
 
 - name: create docker directories
   file:
-    path: /etc/docker
+    path: "{{ item }}"
     state: directory
+  loop:
+    - /etc/docker
 
 - name: copy docker mirrors file
   copy:
@@ -54,13 +55,17 @@
 
 - name: enable docker automatic start
   systemd:
-    name: docker
+    name: "{{ item }}"
     state: started
     enabled: yes
+  loop:
+    - docker
 
 - pip:
-    name: docker-py
+    name: "{{ item }}"
     extra_args: -i {{ pip_mirrors }}
+  loop:
+    - docker-py
 
 - name: create koko container
   docker_container:
